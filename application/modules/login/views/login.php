@@ -78,14 +78,8 @@
 							</div>
 
 							<div class="row">
-								<div class="col-sm-8">
-									<div class="checkbox-custom checkbox-default">
-										<input id="RememberMe" name="rememberme" type="checkbox"/>
-										<label for="RememberMe">Remember Me</label>
-									</div>
-								</div>
-								<div class="col-sm-4 text-right">
-									<button type="submit" class="btn btn-danger mt-2">Sign In</button>
+								<div class="col-sm-12">
+									<button type="submit" class="btn btn-primary btn-block mt-2">Sign In</button>
 								</div>
 							</div>
 
@@ -109,13 +103,13 @@
 		<script src="<?=base_url()?>_template/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="<?=base_url()?>_template/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 		<script src="<?=base_url()?>_template/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-		
+
 		<!-- Theme Base, Components and Settings -->
 		<script src="<?=base_url()?>_template/js/theme.js"></script>
-		
+
 		<!-- Theme Custom -->
 		<script src="<?=base_url()?>_template/js/custom.js"></script>
-		
+
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url()?>_template/js/theme.init.js"></script>
 

@@ -348,11 +348,16 @@ html.no-overflowscrolling .nano > .nano-pane > .nano-slider {
 }
 
 .body-sign .card-sign .card-title-sign .title {
-	background-color: #cc002c;
+	background-color: #ed0000;
 }
 
 .body-sign .card-sign .card-body {
-	border-top-color: #cc002c;
+	border-top-color: #ed0000;
+}
+
+.btn-red{
+	background-color: #ed0000;
+	color : #fff;
 }
 
 .body-locked .current-user .user-image {
