@@ -34,9 +34,8 @@
 													<th>Nama</th>
 													<th>Telepon</th>
 													<th>Email</th>
-													<th>Username</th>
-                          <th>Level</th>
-													<th>Status</th>
+                          <th class="text-center">Level</th>
+													<th class="text-center">Status</th>
                           <th class="text-center">#</th>
 												</tr>
 											</thead>
@@ -47,13 +46,12 @@
 													<td><?=$row->nama?></td>
 													<td><?=$row->telepon?></td>
 													<td><?=$row->email?></td>
-													<td><?=$row->username?></td>
-                          <td><?=$row->level?></td>
-													<td><?=$row->is_active?></td>
+                          <td class="text-center"><?=$row->level?></td>
+													<td class="text-center"><?=$row->is_active=="1"?'<span class="badge badge-success">Aktif</span>':'<span class="badge badge-danger">Nonaktif</span>'?></td>
                           <td class="text-center">
-                            <a href="#" class="text-info"> <i class="fas fa-file"></i> Detail</a>&nbsp;
-                            <a href="#" class="text-warning"> <i class="fas fa-pen-square"></i> Edit</a>&nbsp;
-                            <a href="#" class="text-danger"> <i class="fas fa-trash-alt"></i> Hapus</a>
+                            <a href="<?=site_url("backend/administrator/reset_password/".enc_uri($row->id_admin))?>" class="text-info"> <i class="fas fa-key"></i> Ganti Password</a>&nbsp;
+                            <a href="<?=site_url("backend/administrator/update/".enc_uri($row->id_admin))?>" class="text-warning"> <i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+                            <a href="<?=site_url("backend/administrator/delete/".enc_uri($row->id_admin))?>" class="text-danger"> <i class="fas fa-trash-alt"></i> Hapus</a>
                           </td>
 												</tr>
                       <?php endforeach; ?>
@@ -80,7 +78,8 @@
 var datatableInit = function() {
 
   $('#table').dataTable({
-    dom: '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p'
+    dom: '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p',
+		ordering : false
   });
 
 };
