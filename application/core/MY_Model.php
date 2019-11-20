@@ -28,8 +28,14 @@ class MY_Model extends CI_Model{
 
     function get_delete($table,$where)
     {
-      return $this->db->where($where)
-                      ->delete($table);
+      $this->db->where($where);
+      $this->db->delete($table);
+      $qry = $this->db->affected_rows();
+      if ($qry > 0) {
+        return true;
+      }else {
+        return false;
+      }
 
     }
 

@@ -50,11 +50,11 @@
 						<h2 class="title text-uppercase font-weight-bold m-0"><i class="fas fa-user mr-1"></i> Sign In</h2>
 					</div>
 					<div class="card-body">
-						<form action="index.html" method="post">
+						<form action="<?=site_url("login/login/action")?>" id="form">
 							<div class="form-group mb-3">
-								<label>Username</label>
+								<label class="float-left">Email</label><div id="email"></div>
 								<div class="input-group">
-									<input name="username" type="text" class="form-control form-control-lg" />
+									<input name="email" type="text" class="form-control form-control-lg" />
 									<span class="input-group-append">
 										<span class="input-group-text">
 											<i class="fas fa-user"></i>
@@ -65,10 +65,10 @@
 
 							<div class="form-group mb-3">
 								<div class="clearfix">
-									<label class="float-left">Password</label>
+									<label class="float-left">Password</label><div id="password"></div>
 								</div>
 								<div class="input-group">
-									<input name="pwd" type="password" class="form-control form-control-lg" />
+									<input name="password" type="password" class="form-control form-control-lg" />
 									<span class="input-group-append">
 										<span class="input-group-text">
 											<i class="fas fa-lock"></i>
@@ -79,7 +79,7 @@
 
 							<div class="row">
 								<div class="col-sm-12">
-									<button type="submit" class="btn btn-primary btn-block mt-2">Sign In</button>
+									<button type="submit" id="submit" class="btn btn-primary btn-block mt-2">Sign In</button>
 								</div>
 							</div>
 
@@ -113,5 +113,45 @@
 		<!-- Theme Initialization Files -->
 		<script src="<?=base_url()?>_template/js/theme.init.js"></script>
 
+		<script type="text/javascript">
+  $("#form").submit(function(e){
+    e.preventDefault();
+    var me = $(this);
+    $('#submit').prop('disabled', true)
+                 .html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Loading...');
+    $.ajax({
+      url      : me.attr('action'),
+      type     : 'POST',
+      data     :me.serialize(),
+      dataType : 'JSON',
+      success:function(json){
+       if (json.success==true) {
+         if (json.valid==true) {
+           window.location.href = json.url;
+         }else {
+           $(".password").val('');
+           $('#submit').prop('disabled', false).text('Sign In');
+           $.toast({
+             // heading: 'Gagal Login',
+             text: json.alert,
+             showHideTransition: 'slide',
+             icon: 'error',
+             loaderBg: '#3e3e3e',
+             position: 'top-center'
+           });
+           $('.text-danger').remove();
+         }
+       }else {
+         $.each(json.alert, function(key, value) {
+           var element = $('#' + key);
+           $('#submit').prop('disabled', false).text('Sign In');
+           $(element).find('.text-danger').remove();
+           $(element).html(value);
+         });
+       }
+     }
+    });
+  })
+</script>
 	</body>
 </html>

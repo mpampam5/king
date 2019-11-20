@@ -29,18 +29,20 @@
           <form action="<?=$action?>" autocomplete="off" id="form">
             <div class="form-group">
               <label id="nama">Nama</label>
-              <input type="text" class="form-control" name="nama" value="<?=$nama?>"  placeholder="">
+              <input type="text" class="form-control" name="nama" value="<?=$nama?>">
             </div>
 
             <div class="form-group">
               <label id="telepon">Telepon</label>
-              <input type="text" class="form-control" name="telepon" value="<?=$telepon?>"  placeholder="">
+              <input type="text" class="form-control" name="telepon" value="<?=$telepon?>">
             </div>
 
             <div class="form-group">
               <label id="level">Level</label>
               <select class="form-control" name="level">
-                <option value="">--pilih--</option>
+								<?php if ($button=="tambah"): ?>
+									<option value="">--pilih--</option>
+								<?php endif; ?>
                 <option <?=$level=="admin"?"selected":""?> value="admin">Admin</option>
                 <option <?=$level=="superadmin"?"selected":""?> value="superadmin">Superadmin</option>
               </select>
@@ -48,18 +50,23 @@
 
 						<div class="form-group">
               <label id="email">Email</label>
-              <input type="text" class="form-control" name="email" value="<?=$email?>"  placeholder="">
+              <input type="text" class="form-control" name="email" value="<?=$email?>">
+							<input type="hidden" name="email_lama" value="<?=$email?>">
             </div>
 
-            <div class="form-group">
-              <label id="password">Password</label>
-              <input type="password" class="form-control" name="password" placeholder="">
-            </div>
+						<?php if ($button=="tambah"): ?>
+	            <div class="form-group">
+	              <label id="password">Password</label>
+	              <input type="password" class="form-control" name="password">
+	            </div>
+						<?php endif; ?>
 
             <div class="form-group">
               <label id="is_active">Status Aktif</label>
               <select class="form-control"  name="is_active">
-                <option value="">--pilih--</option>
+								<?php if ($button=="tambah"): ?>
+									<option value="">--pilih--</option>
+								<?php endif; ?>
                 <option <?=$is_active=="1"?"selected":""?> value="1">Aktif</option>
                 <option <?=$is_active=="0"?"selected":""?> value="0">Nonaktif</option>
               </select>
@@ -68,7 +75,7 @@
 
           <div class="mt-4">
             <a href="<?=site_url("backend/administrator")?>" class="btn btn-sm btn-default"> Batal</a>
-            <button type="submit" class="btn btn-primary btn-sm" id="submit" name="submit">Tambahkan</button>
+            <button type="submit" class="btn btn-primary btn-sm" id="submit" name="submit"><?=$button=="tambah"?"Tambahkan":"Edit"?></button>
           </div>
 
           </form>
@@ -108,7 +115,7 @@ $.ajax({
             });
         }else {
           $("#submit").prop('disabled',false)
-                      .html('<?=$button=="tambah"?"Tambahkan":"Update"?>');
+                      .html('<?=$button=="tambah"?"Tambahkan":"Edit"?>');
           $.each(json.alert, function(key, value) {
             var element = $('#' + key);
             $(element)

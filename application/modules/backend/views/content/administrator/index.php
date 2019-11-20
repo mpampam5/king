@@ -49,9 +49,13 @@
                           <td class="text-center"><?=$row->level?></td>
 													<td class="text-center"><?=$row->is_active=="1"?'<span class="badge badge-success">Aktif</span>':'<span class="badge badge-danger">Nonaktif</span>'?></td>
                           <td class="text-center">
-                            <a href="<?=site_url("backend/administrator/reset_password/".enc_uri($row->id_admin))?>" class="text-info"> <i class="fas fa-key"></i> Ganti Password</a>&nbsp;
-                            <a href="<?=site_url("backend/administrator/update/".enc_uri($row->id_admin))?>" class="text-warning"> <i class="fas fa-pen-square"></i> Edit</a>&nbsp;
-                            <a href="<?=site_url("backend/administrator/delete/".enc_uri($row->id_admin))?>" class="text-danger"> <i class="fas fa-trash-alt"></i> Hapus</a>
+                            <a href="<?=site_url("backend/administrator/reset_password/".enc_uri($row->id_admin))?>" class="btn btn-xs btn-info"> <i class="fas fa-key"></i> Ganti Password</a>&nbsp;
+                            <a href="<?=site_url("backend/administrator/update/".enc_uri($row->id_admin))?>" class="btn btn-xs btn-warning"> <i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+														<?php if (sess("id_admin")==$row->id_admin): ?>
+															<button type="button" class="btn btn-xs btn-danger" disabled> <i class="fas fa-trash-alt"></i> Hapus</button>
+															<?php else: ?>
+																<a href="<?=site_url("backend/administrator/delete/".enc_uri("$row->id_admin"))?>" class="btn btn-xs btn-danger" id="delete"> <i class="fas fa-trash-alt"></i> Hapus</a>
+														<?php endif; ?>
                           </td>
 												</tr>
                       <?php endforeach; ?>
@@ -62,13 +66,8 @@
           </section>
       </div>
     </div>
-
-
-
-
 	<!-- end: page -->
 </section>
-
 
 <script type="text/javascript">
 (function($) {
@@ -89,4 +88,43 @@ $(function() {
 });
 
 }).apply(this, [jQuery]);
+
+$(document).on("click","#delete",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-lg')
+                    .removeClass('modal-md')
+                    .addClass('modal-sm');
+  $("#modalTitle").text('Please Confirm');
+  $('#modalContent').html(`<p>Are you sure you want to delete?</p>
+														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'>Cancel</button>
+	                          <button type='button' class='btn btn-primary btn-sm' id='ya-hapus' data-id=`+$(this).attr('alt')+`  data-url=`+$(this).attr('href')+`>Yes, i'm sure</button>
+														`);
+  $("#modalGue").modal('show');
+});
+
+
+$(document).on('click','#ya-hapus',function(e){
+  $(this).prop('disabled',true)
+          .text('Processing...');
+  $.ajax({
+          url:$(this).data('url'),
+          type:'post',
+          cache:false,
+          dataType:'json',
+          success:function(json){
+            $('#modalGue').modal('hide');
+            $.toast({
+              text: json.alert,
+              showHideTransition: 'slide',
+              icon: json.alert_header,
+              loaderBg: '#f96868',
+              position: 'bottom-right',
+              afterHidden: function () {
+                  location.reload();
+              }
+            });
+          }
+        });
+});
+
 </script>
