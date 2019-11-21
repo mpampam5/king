@@ -5,7 +5,7 @@
 
 <section role="main" class="content-body">
 		<header class="page-header">
-			<h2>Bantuan Khusus</h2>
+			<h2>Jadwal Acara</h2>
 			<div class="right-wrapper text-right">
 				<ol class="breadcrumbs">
 					<li>
@@ -13,7 +13,7 @@
 							<i class="fas fa-home"></i>
 						</a>
 					</li>
-					<li><span>Bantuan Khusus</span></li>
+					<li><span>Jadwal Acara</span></li>
 					<li><span>List</span></li>
 				</ol>
         <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
@@ -24,7 +24,7 @@
 
       <div class="row">
         <div class="col">
-          <a href="<?=site_url("backend/bantuan/add")?>" class="btn btn-sm btn-success mb-2"><i class="fas fa-plus"></i> Tambah</a>
+          <a href="<?=site_url("backend/jadwal_acara/add")?>" class="btn btn-sm btn-success mb-2"><i class="fas fa-plus"></i> Tambah</a>
           <section class="card">
             <div class="card-body">
 

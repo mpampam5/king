@@ -17,23 +17,23 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
 
 		<!-- Vendor CSS -->
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/bootstrap/css/bootstrap.css" />
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/animate/animate.css">
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/animate/animate.css">
 
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/font-awesome/css/all.min.css" />
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/magnific-popup/magnific-popup.css" />
 
 		<!-- Theme CSS -->
-		<link rel="stylesheet" href="<?=base_url()?>_template/css/theme.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/theme.css" />
 
 		<!-- Skin CSS -->
-		<link rel="stylesheet" href="<?=base_url()?>_template/css/skins/default.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/skins/default.css" />
 
 		<!-- Theme Custom CSS -->
-		<link rel="stylesheet" href="<?=base_url()?>_template/css/custom.css">
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/jquery-toast-plugin/jquery.toast.min.css">
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/custom.css">
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/jquery-toast-plugin/jquery.toast.min.css">
 		<!-- Head Libs -->
-		<script src="<?=base_url()?>_template/vendor/modernizr/modernizr.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/modernizr/modernizr.js"></script>
 
 	</head>
 	<body>
@@ -41,7 +41,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="/" class="logo float-left">
-					<img src="<?=base_url()?>_template/img/logo-login.png" height="100%" width="100%" alt="Porto Admin" />
+					<img src="<?=base_url()?>_template/backend/img/logo-login.png" height="100%" width="100%" alt="Porto Admin" />
 				</a>
 
 				<div class="panel card-sign">
@@ -93,24 +93,24 @@
 		<!-- end: page -->
 
 		<!-- Vendor -->
-		<script src="<?=base_url()?>_template/vendor/jquery/jquery.js"></script>
-		<script src="<?=base_url()?>_template/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
-		<script src="<?=base_url()?>_template/vendor/popper/umd/popper.min.js"></script>
-		<script src="<?=base_url()?>_template/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="<?=base_url()?>_template/vendor/jquery-toast-plugin/jquery.toast.min.js"></script>
-		<script src="<?=base_url()?>_template/vendor/common/common.js"></script>
-		<script src="<?=base_url()?>_template/vendor/nanoscroller/nanoscroller.js"></script>
-		<script src="<?=base_url()?>_template/vendor/magnific-popup/jquery.magnific-popup.js"></script>
-		<script src="<?=base_url()?>_template/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/jquery/jquery.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/popper/umd/popper.min.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/bootstrap/js/bootstrap.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/jquery-toast-plugin/jquery.toast.min.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/common/common.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/jquery-placeholder/jquery.placeholder.js"></script>
 
 		<!-- Theme Base, Components and Settings -->
-		<script src="<?=base_url()?>_template/js/theme.js"></script>
+		<script src="<?=base_url()?>_template/backend/js/theme.js"></script>
 
 		<!-- Theme Custom -->
-		<script src="<?=base_url()?>_template/js/custom.js"></script>
+		<script src="<?=base_url()?>_template/backend/js/custom.js"></script>
 
 		<!-- Theme Initialization Files -->
-		<script src="<?=base_url()?>_template/js/theme.init.js"></script>
+		<script src="<?=base_url()?>_template/backend/js/theme.init.js"></script>
 
 		<script type="text/javascript">
   $("#form").submit(function(e){

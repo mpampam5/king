@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/font-awesome/css/all.min.css" />
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/magnific-popup/magnific-popup.css" />
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/bootstrap-timepicker/css/bootstrap-timepicker.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/theme.css" />
@@ -206,14 +207,14 @@
 				                    </li>
 
 				                    <li>
-				                        <a class="nav-link" href="mailbox-folder.html">
+				                        <a class="nav-link" href="<?=site_url("backend/jadwal_acara")?>">
 				                            <i class="fas fa-calendar" aria-hidden="true"></i>
 				                            <span>Jadwal Acara</span>
 				                        </a>
 				                    </li>
 
 														<li>
-				                        <a class="nav-link" href="mailbox-folder.html">
+				                        <a class="nav-link" href="<?=site_url("backend/bantuan")?>">
 				                            <i class="fas fa-receipt" aria-hidden="true"></i>
 				                            <span>Kegiatan</span>
 				                        </a>

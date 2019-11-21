@@ -24,7 +24,7 @@
 <script src="<?=base_url()?>_template/backend/vendor/nanoscroller/nanoscroller.js"></script>
 <script src="<?=base_url()?>_template/backend/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 <script src="<?=base_url()?>_template/backend/vendor/jquery-placeholder/jquery.placeholder.js"></script>
-
+<script src="<?=base_url()?>_template/backend/vendor/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 <!-- Theme Base, Components and Settings -->
 <script src="<?=base_url()?>_template/backend/js/theme.js"></script>
 
