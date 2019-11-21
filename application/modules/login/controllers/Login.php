@@ -11,7 +11,11 @@ class Login extends CI_Controller {
 
     public function index()
     {
+      if ($this->session->userdata("logins")==true) {
+        redirect("backend/home","refresh");
+      }else {
         $this->load->view('login');
+      }
     }
 
 
@@ -53,10 +57,11 @@ class Login extends CI_Controller {
                                 );
                 $this->session->set_userdata($session);
 
+                logs("login","login","login");
                 $json['valid'] = true;
                 $json['url'] = site_url("backend/home");
               }else {
-                $json['alert'] = "Username Atau Password Salah";
+                $json['alert'] = "Email Atau Password Salah";
               }
           }else {
             $json['alert'] = "Email Atau Password Salah";
@@ -70,6 +75,14 @@ class Login extends CI_Controller {
 
       echo json_encode($json);
     }
+  }
+
+
+  function logout()
+  {
+    logs("logout","logout","logout");
+    $this->session->sess_destroy();
+    redirect(site_url("panel-admin"),'refresh');
   }
 
 

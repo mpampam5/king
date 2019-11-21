@@ -22,7 +22,6 @@
 
 		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/font-awesome/css/all.min.css" />
 		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/magnific-popup/magnific-popup.css" />
-		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
 
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?=base_url()?>_template/css/theme.css" />
@@ -32,7 +31,7 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?=base_url()?>_template/css/custom.css">
-
+		<link rel="stylesheet" href="<?=base_url()?>_template/vendor/jquery-toast-plugin/jquery.toast.min.css">
 		<!-- Head Libs -->
 		<script src="<?=base_url()?>_template/vendor/modernizr/modernizr.js"></script>
 
@@ -54,7 +53,7 @@
 							<div class="form-group mb-3">
 								<label class="float-left">Email</label><div id="email"></div>
 								<div class="input-group">
-									<input name="email" type="text" class="form-control form-control-lg" />
+									<input name="email" type="text" class="form-control form-control-md" />
 									<span class="input-group-append">
 										<span class="input-group-text">
 											<i class="fas fa-user"></i>
@@ -68,7 +67,7 @@
 									<label class="float-left">Password</label><div id="password"></div>
 								</div>
 								<div class="input-group">
-									<input name="password" type="password" class="form-control form-control-lg" />
+									<input name="password" type="password" class="form-control form-control-md password" />
 									<span class="input-group-append">
 										<span class="input-group-text">
 											<i class="fas fa-lock"></i>
@@ -98,7 +97,7 @@
 		<script src="<?=base_url()?>_template/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="<?=base_url()?>_template/vendor/popper/umd/popper.min.js"></script>
 		<script src="<?=base_url()?>_template/vendor/bootstrap/js/bootstrap.js"></script>
-		<script src="<?=base_url()?>_template/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="<?=base_url()?>_template/vendor/jquery-toast-plugin/jquery.toast.min.js"></script>
 		<script src="<?=base_url()?>_template/vendor/common/common.js"></script>
 		<script src="<?=base_url()?>_template/vendor/nanoscroller/nanoscroller.js"></script>
 		<script src="<?=base_url()?>_template/vendor/magnific-popup/jquery.magnific-popup.js"></script>

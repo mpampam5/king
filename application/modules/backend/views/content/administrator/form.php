@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="<?=base_url()?>_template/vendor/datatables/media/css/dataTables.bootstrap4.css" />
-<script src="<?=base_url()?>_template/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="<?=base_url()?>_template/vendor/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-
-
 <section role="main" class="content-body">
 		<header class="page-header">
 			<h2>Administrator</h2>

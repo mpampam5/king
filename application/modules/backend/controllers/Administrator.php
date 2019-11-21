@@ -200,7 +200,7 @@ class Administrator extends MY_Controller{
   {
     if ($this->input->is_ajax_request()) {
       $json = array('alert_header'=>array(), 'alert'=>array());
-      if ($this->model->get_update("tb_admin",["is_delete" => "1"],["id_admin" => dec_uri($id)])) {
+      if ($this->model->get_update("tb_admin",["modified" => date('Y-m-d H:i:s'), "is_delete" => "1"],["id_admin" => dec_uri($id)])) {
           //logs Activity
           logs("administrator","delete",json_encode(["id_admin" => dec_uri($id)]));
 
