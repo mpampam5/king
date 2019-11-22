@@ -32,8 +32,8 @@
 											<thead>
 												<tr>
 													<th>No</th>
-													<th>Tgl Post</th>
-													<th>Keterangan</th>
+													<th>Jadwal Acara</th>
+													<th>Title</th>
                           <th class="text-center">#</th>
 												</tr>
 											</thead>
@@ -62,7 +62,7 @@ $(document).ready(function(){
     "order": [[ 1, 'desc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
     "ajax":
     {
-      "url": "<?php echo site_url('backend/bantuan/json') ?>", // URL file untuk proses select datanya
+      "url": "<?php echo site_url('backend/jadwal_acara/json') ?>", // URL file untuk proses select datanya
       "type": "POST"
     },
 

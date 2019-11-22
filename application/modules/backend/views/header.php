@@ -126,8 +126,8 @@
 								<img src="<?=base_url()?>_template/backend/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="img/!logged-user.jpg" />
 							</figure>
 							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
-								<span class="name">John Doe Junior</span>
-								<span class="role">administrator</span>
+								<span class="name"><?=profile_admin("nama")?></span>
+								<span class="role"><?=profile_admin("level")?></span>
 							</div>
 
 							<i class="fa custom-caret"></i>
@@ -159,7 +159,7 @@
 
 				    <div class="sidebar-header">
 				        <div class="sidebar-title">
-				            Navigation
+				            Main Menu
 				        </div>
 				        <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
 				            <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
@@ -242,7 +242,7 @@
 				                    </li>
 
 														<li>
-				                        <a class="nav-link" href="mailbox-folder.html">
+				                        <a class="nav-link" href="<?=site_url("")?>">
 				                            <i class="fas fa-file-alt" aria-hidden="true"></i>
 				                            <span>Log Activity Admin</span>
 				                        </a>

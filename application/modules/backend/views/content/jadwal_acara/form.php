@@ -26,42 +26,42 @@
               <div class="col-sm-12 mb-3">
                 <div class="form-group">
                   <label id="title">Title</label>
-                  <input type="text" class="form-control" name="title" placeholder="">
+                  <input type="text" class="form-control" name="title" value="<?=$title?>">
                 </div>
               </div>
 
               <div class="col-sm-6">
                 <div class="form-group">
-									<label>Tanggal</label>
+									<label id="tanggal">Tanggal</label>
 										<div class="input-group">
 											<span class="input-group-prepend">
 												<span class="input-group-text">
 													<i class="fas fa-calendar-alt"></i>
 												</span>
 											</span>
-											<input type="text" data-plugin-datepicker=""  data-plugin-options="{ &quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}" class="form-control">
+											<input type="text" name="tanggal" value="<?=$tanggal?>" data-plugin-datepicker=""  data-plugin-options="{ &quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}" class="form-control">
 										</div>
 								</div>
               </div>
 
               <div class="col-sm-6">
                 <div class="form-group">
-									<label>Jam</label>
+									<label id="jam">Jam</label>
 										<div class="input-group">
 											<span class="input-group-prepend">
 												<span class="input-group-text">
 													<i class="far fa-clock"></i>
 												</span>
 											</span>
-											<input type="text" data-plugin-timepicker="" class="form-control" data-plugin-options="{&quot;defaultTime&quot;:false, &quot;showMeridian&quot;: false }">
+											<input type="text" name="jam" value="<?=$jam?>" data-plugin-timepicker="" class="form-control" data-plugin-options="{&quot;defaultTime&quot;:false, &quot;showMeridian&quot;: false }">
 										</div>
 								</div>
               </div>
 
               <div class="col-sm-12 mt-3">
                 <div class="form-group">
-                  <label for="">Alamat</label>
-                  <textarea class="form-control" name="name"  rows="4" cols="80"></textarea>
+                  <label id="alamat">Alamat</label>
+                  <textarea class="form-control" name="alamat"  rows="4" cols="80"><?=$alamat?></textarea>
                 </div>
               </div>
 
@@ -82,9 +82,7 @@
 
 
 <script type="text/javascript">
-$(".datepicker").datepicker({
-  orientation: "right bottom"
-});
+
 
 $("#form").submit(function(e){
 e.preventDefault();
