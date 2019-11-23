@@ -214,7 +214,7 @@
 				                    </li>
 
 														<li>
-				                        <a class="nav-link" href="<?=site_url("backend/bantuan")?>">
+				                        <a class="nav-link" href="<?=site_url("backend/kegiatan")?>">
 				                            <i class="fas fa-receipt" aria-hidden="true"></i>
 				                            <span>Kegiatan</span>
 				                        </a>

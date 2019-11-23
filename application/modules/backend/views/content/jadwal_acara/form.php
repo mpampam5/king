@@ -30,7 +30,7 @@
                 </div>
               </div>
 
-              <div class="col-sm-6">
+              <div class="col-sm-6 mb-3">
                 <div class="form-group">
 									<label id="tanggal">Tanggal</label>
 										<div class="input-group">
@@ -39,12 +39,27 @@
 													<i class="fas fa-calendar-alt"></i>
 												</span>
 											</span>
-											<input type="text" name="tanggal" value="<?=$tanggal?>" data-plugin-datepicker=""  data-plugin-options="{ &quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}" class="form-control">
+											<input type="text" name="tanggal" value="<?=$tanggal?>" data-plugin-datepicker=""  data-plugin-options="{ format: &quot;mm/dd/yyyy&quot;,&quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}" class="form-control">
 										</div>
 								</div>
               </div>
 
-              <div class="col-sm-6">
+							<div class="col-sm-6 mb-3">
+                <div class="form-group">
+									<label id="sampai_tanggal">Sampai Tanggal</label>
+										<div class="input-group">
+											<span class="input-group-prepend">
+												<span class="input-group-text">
+													<i class="fas fa-calendar-alt"></i>
+												</span>
+											</span>
+											<input type="text" name="sampai_tanggal" value="<?=$sampai_tanggal?>" data-plugin-datepicker=""  data-plugin-options="{ format: &quot;mm/dd/yyyy&quot;,&quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}" class="form-control">
+										</div>
+										<span class="text-primary" style="font-size:12px"> * Kosongkan jika hanya sehari</span>
+								</div>
+              </div>
+
+              <div class="col-sm-4">
                 <div class="form-group">
 									<label id="jam">Jam</label>
 										<div class="input-group">
@@ -58,6 +73,35 @@
 								</div>
               </div>
 
+							<div class="col-sm-4">
+                <div class="form-group">
+									<label id="sampai_jam">Sampai Jam</label>
+										<div class="input-group">
+											<span class="input-group-prepend">
+												<span class="input-group-text">
+													<i class="far fa-clock"></i>
+												</span>
+											</span>
+											<input type="text" name="sampai_jam" value="<?=$sampai_jam?>" data-plugin-timepicker="" class="form-control" data-plugin-options="{&quot;defaultTime&quot;:false, &quot;showMeridian&quot;: false }">
+										</div>
+										<span class="text-primary" style="font-size:12px"> * Kosongkan jika waktu tidak ditentukan</span>
+								</div>
+              </div>
+
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label id="timezone">Zona Waktu</label>
+										<select class="form-control" name="timezone">
+											<?php if ($button=="tambah"): ?>
+												<option value=""> -- pilih -- </option>
+											<?php endif; ?>
+											<option <?=$zona_waktu == "wib" ? "selected":""?> value="wib">WIB (Waktu Indonesia Barat)</option>
+											<option <?=$zona_waktu == "wita" ? "selected":""?> value="wita">WITA (Waktu Indonesia Tengah)</option>
+											<option <?=$zona_waktu == "wit" ? "selected":""?> value="wit">WIT (Waktu Indonesia Timur)</option>
+										</select>
+								</div>
+							</div>
+
               <div class="col-sm-12 mt-3">
                 <div class="form-group">
                   <label id="alamat">Alamat</label>
@@ -67,7 +111,7 @@
 
 
             <div class="col-sm-12 mt-4">
-              <a href="<?=site_url("backend/bantuan")?>" class="btn btn-sm btn-default"> Batal</a>
+              <a href="<?=site_url("backend/jadwal_acara")?>" class="btn btn-sm btn-default"> Batal</a>
               <button type="submit" class="btn btn-primary btn-sm" id="submit" name="submit"><?=$button=="tambah"?"Tambahkan":"Edit"?></button>
             </div>
 
