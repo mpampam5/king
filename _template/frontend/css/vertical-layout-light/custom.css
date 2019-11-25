@@ -1,0 +1,166 @@
+/* @media screen and (max-width: 991px){
+  .sidebar-offcanvas{
+    left:237px!important;
+  }
+
+  .sidebar-offcanvas.active{
+    left:0!important;
+  }
+} */
+@media (max-width: 767px){
+  .content-wrapper{
+    padding: 0!important;
+  }
+}
+
+.navbar{
+  /* z-index:1999; */
+  background-color: #fff;
+}
+
+
+.sidebar{
+  background-color: #fff!important;
+}
+
+/* .owl-item {
+  width: 200px!important;
+} */
+/* .owl-carousel .owl-item{
+  height: 300px!important;
+} */
+
+.card-img-overlay{
+  background: rgb(36,0,0);
+  background: linear-gradient(90deg, rgba(36,0,0,0.3113620448179272) 0%, rgba(255,0,0,0.31) 52%, rgba(255,0,0,0.30575980392156865) 100%);
+}
+
+.owl-theme .owl-dots .owl-dot span{
+  background: #ab3838!important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+  background: #ff0000!important;
+}
+
+
+.owl-carousel img{
+  border-radius: 0!important;
+}
+
+.owl-carousel.full-width .owl-dots{
+  margin-top: 3px;
+}
+
+.rounded-content{
+    padding: auto;
+    text-align: center;
+}
+.rounded-home{
+  width: 40%;
+  position: relative;
+  margin: 10px;
+  display: inline-block;
+}
+
+.rounded-home span{
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  border-radius: 4px;
+}
+
+.rounded-home p{
+  padding: 5px 20px 0 20px;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+
+.rounded-menu{
+  width: 30%;
+  position: relative;
+  margin: 5px;
+  display: inline-block;
+}
+
+.rounded-menu a{
+  text-decoration: none;
+}
+
+.rounded-menu a span{
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.rounded-menu a p{
+  padding: 4px 10px 0 4px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #e20e0e;
+}
+
+
+
+.rounded-menu.active a span{
+  color: #fff;
+  background-color: #e20e0e;
+}
+
+.rounded-menu.active a p{
+  color: #3b3b3b;
+}
+
+
+.aturan ul{
+  list-style: none;
+}
+
+.aturan ul li{
+  font-size: 12px;
+}
+
+
+.jadwal_acara .content
+{
+  background-color: #fff;
+  padding: 15px;
+  margin: 3px;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+}
+
+.jadwal_acara .content b {
+  display: block;
+  font-size: 12px;
+  color: #535353;
+}
+
+.jadwal_acara .content table{
+  font-size: 12px;
+  color: #535353;
+}
+
+.footer{
+  background: #ffffff!important;
+  padding: 10px 1rem;
+  transition: bottom 0.5s;
+  -webkit-box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
+  -moz-box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
+  box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
+}
+
+.footer a{
+  margin: 0 25px 0 25px;
+  font-size: 25px!important;
+  color:#202020;
+}
+
+.footer a.active{
+  color:#e90808;
+}
