@@ -15,14 +15,14 @@
     </div>
 
     <div class="rounded-menu">
-      <a href="#">
+      <a href="<?=site_url("frontend/kegiatan")?>">
         <span class="badge badge-outline-danger"><i class="fas fa-clipboard-list"></i></span>
         <p class="text-center">Kegiatan</p>
       </a>
     </div>
 
     <div class="rounded-menu">
-      <a href="#">
+      <a href="<?=site_url("frontend/bantuan")?>">
         <span class="badge badge-outline-danger"><i class="fas fa-hands-helping"></i></span>
         <p class="text-center">Bantuan Khusus</p>
       </a>

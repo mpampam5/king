@@ -26,14 +26,14 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <button class="navbar-toggler navbar-toggler-left d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="ti-layout-grid2"></span>
+        <span class="ti-layout-grid2" style="color:#9b9b9b;"></span>
       </button>
 
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="../../index.html">
+        <a class="navbar-brand brand-logo mr-5" href="#">
           <img src="<?=base_url()?>_template/logo-header.png" alt="logo"/>
         </a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html">
+        <a class="navbar-brand brand-logo-mini" href="#">
           <img src="<?=base_url()?>_template/logo-header.png" alt="logo"/>
         </a>
       </div>
@@ -133,7 +133,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="../../index.html">
+            <a class="nav-link" href="<?=site_url("frontend/home")?>">
               <i class="ti-home menu-icon"></i>
               <span class="menu-title">Home</span>
             </a>

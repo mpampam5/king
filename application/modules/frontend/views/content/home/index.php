@@ -57,7 +57,7 @@
 
     <div class="rounded-home">
       <span class="badge badge-outline-danger">35</span>
-      <p class="text-center">Relawan Terdaftar belum terverifikasi</p>
+      <p class="text-center">Relawan Terdaftar sudah terverifikasi</p>
     </div>
 
   </div>

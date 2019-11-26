@@ -146,6 +146,66 @@
   color: #535353;
 }
 
+
+.kegiatan .content
+{
+  background-color: #fff;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+}
+
+.kegiatan .content b {
+  display: block;
+  font-size: 12px;
+  color: #535353;
+}
+
+.kegiatan .content p.text{
+  text-align: center;
+  font-size: 12px;
+  color: #535353;
+  margin-bottom: 10px;
+}
+
+.kegiatan .content p.links a{
+  font-size: 12px;
+  color: #1377a2;
+  text-decoration: none;
+}
+
+.bantuan .content
+{
+  background-color: #fff;
+  padding: 8px;
+  margin: 15px;
+  border-radius: 4px;
+  overflow-y: auto;
+  max-height: 400px;
+  /* -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42); */
+}
+
+
+.bantuan ul{
+  list-style-type:decimal;
+  font-size: 12px;
+  color: #535353;
+}
+
+.bantuan .info{
+  padding: 15px;
+  font-size: 12px;
+}
+
+.bantuan .info p{
+  font-size: 12px;
+}
+
 .footer{
   background: #ffffff!important;
   padding: 10px 1rem;
