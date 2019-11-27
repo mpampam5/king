@@ -52,6 +52,39 @@
   margin-top: 3px;
 }
 
+.header-menu{
+  background-color: #ff0000;
+  padding: 10px;
+}
+
+.header-menu img{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  height: 70px;
+  width: 70px;
+}
+
+.header-menu .nama{
+  font-size: 13px;
+  color:#fff;
+  display: block;
+}
+
+.header-menu .email{
+  font-size: 11px;
+  color:#e8e8e8;
+}
+
+.main-menus{
+  background-image: url('../../../../_template/logo-main-menu.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 65% 100%;
+
+}
+
 .rounded-content{
     padding: auto;
     text-align: center;
@@ -94,6 +127,7 @@
   width: 100%;
   border-radius: 4px;
   padding: 20px;
+  background-color: #fff;
 }
 
 .rounded-menu a p{
@@ -219,6 +253,7 @@
   margin: 0 25px 0 25px;
   font-size: 25px!important;
   color:#202020;
+  text-decoration: none;
 }
 
 .footer a.active{

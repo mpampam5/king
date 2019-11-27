@@ -1,5 +1,5 @@
 <div class="content-wrapper" style="margin-bottom:35px;">
-  <div class="mt-3 text-center">
+  <div class="mt-3 text-center main-menus">
     <div class="rounded-menu">
       <a href="<?=site_url("frontend/aturan")?>">
         <span class="badge badge-outline-danger">S & K</span>
