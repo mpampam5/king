@@ -14,6 +14,8 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/style.css">
+
+  <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/custom.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>_template/frontend/images/favicon.png" />
 
@@ -53,37 +55,31 @@
 
       <div class="row pl-3 pr-3 pt-4 pb-5">
         <div class="col-lg-12">
-          <form class="" action="index.html" method="post">
+          <form class="register" action="index.html" method="post">
             <div class="form-group">
-              <label for="">Struktur Kepengurusan</label>
               <select class="form-control" name="">
-                <option value="">-- Pilih Salah Satu --</option>
+                <option value="">-- Pilih Struktur Kepengurusan --</option>
               </select>
             </div>
 
 
             <div class="form-group">
-              <label for="">Nama Lengkap</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Nama Lengkap">
             </div>
 
             <div class="form-group">
-              <label for="">NIK</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="NIK">
             </div>
 
             <div class="form-group">
-              <label for="">Tempat Lahir</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Tempat Lahir">
             </div>
 
             <div class="form-group">
-              <label for="">Tanggal Lahir</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Tanggal Lahir">
             </div>
 
             <div class="form-group">
-              <label for="">Jenis Kelamin</label>
               <select class="form-control" name="jenis_kelamin">
                 <option value=""> -- pilih jenis kelamin -- </option>
                 <option value="pria">Pria</option>
@@ -92,38 +88,31 @@
             </div>
 
             <div class="form-group">
-              <label for="">Alamat Lengkap</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Alamat Lengkap">
             </div>
 
             <div class="form-group">
-              <label for="">Provinsi</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Provinsi">
             </div>
 
             <div class="form-group">
-              <label for="">Kabupaten/Kota</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Kabupaten/Kota">
             </div>
 
             <div class="form-group">
-              <label for="">Kecamatan</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Kecamatan">
             </div>
 
             <div class="form-group">
-              <label for="">Kelurahan/Desa</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Kelurahan/Desa">
             </div>
 
             <div class="form-group">
-              <label for="">No.Hp</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="No.Hp">
             </div>
 
             <div class="form-group">
-              <label for="">Email</label>
-              <input type="text" class="form-control" id="" placeholder="">
+              <input type="text" class="form-control" id="" placeholder="Email">
             </div>
 
             <div class="text-center">

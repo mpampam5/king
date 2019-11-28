@@ -33,7 +33,9 @@
     .logo{
       position: absolute;
       top: 230px;
-      left: 27%;
+      /* padding: auto; */
+      text-align: center;
+      width: 100%;
     }
 
     .btn-red{
@@ -50,10 +52,8 @@
 
 <body>
   <div class="container-scroller">
-    <div class="container-fluid bg-white p-0">
-      <div class="logo">
-        <img src="<?=base_url()?>_template/logo150x150.png" alt="">
-      </div>
+    <div class="container-fluid bg-white p-0" style="position:relative">
+
 
         <div class="red-bg">
           <h4>Siapkah anda</h4>
@@ -62,7 +62,9 @@
           <p class="mt-3">Klik REGISTER untuk mendaftar, <br> dan selamat datang untuk anda <br> yang telah bergabung bersama kami.</p>
         </div>
 
-
+        <div class="logo">
+          <img src="<?=base_url()?>_template/logo150x150.png" alt="">
+        </div>
 
         <div class="white-bg text-center">
           <a href="<?=site_url("frontend/register")?>" class="btn btn-lg btn-danger btn-red">REGISTER</a>

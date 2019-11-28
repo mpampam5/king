@@ -87,6 +87,8 @@
 
                 <div class="text-center mt-5">
                   <a href="#" class="btn btn-lg btn-danger bg-white text-danger">LOG IN</a>
+                  <p class="mb-3 mt-3">Belum Punya Akun ?</p>
+                  <a href="<?=site_url("frontend/register")?>" class="btn btn-lg btn-danger bg-white text-danger">REGISTER</a>
                 </div>
 
 

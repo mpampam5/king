@@ -1,11 +1,11 @@
 <!-- partial:../../partials/_footer.html -->
 
-<footer class="footer" style="position:fixed;bottom:0;">
+<footer class="footer">
   <div class="d-sm-flex justify-content-center justify-content-sm-between text-center">
     <a href="<?=site_url("frontend/home")?>" class="<?=$title == "home" ? "active":""?>"><i class="ti-home"></i></a>
     <a href="<?=site_url("frontend/information")?>" class="<?=$title == "information" ? "active":""?>"><i class="ti-file"></i></a>
-    <a href="#"><i class="ti-headphone-alt"></i></a>
-    <a href="#"><i class="ti-user"></i></a>
+    <a href="<?=site_url("frontend/support")?>" class="<?=$title == "support" ? "active":""?>"><i class="ti-headphone-alt"></i></a>
+    <a href="<?=site_url("frontend/account")?>" class="<?=$title == "account" ? "active":""?>"><i class="ti-user"></i></a>
   </div>
 </footer>
 <!-- partial -->

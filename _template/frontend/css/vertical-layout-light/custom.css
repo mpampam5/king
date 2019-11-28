@@ -240,13 +240,87 @@
   font-size: 12px;
 }
 
+.support ul {
+  list-style: none;
+}
+
+.support ul li i{
+  /* font-size: 12px; */
+  color:#0cd71a;
+}
+.account{
+
+}
+
+.account .cover-account{
+  min-height: 200px;
+  background-image: url("../../../../_template/cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.account .cover-account .overlay{
+  background: rgb(36,0,0);
+  background: linear-gradient(90deg, rgba(36,0,0,0.3113620448179272) 0%, rgba(255,0,0,0.31) 52%, rgba(255,0,0,0.30575980392156865) 100%);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  text-align: center;
+
+}
+
+.account .cover-account .img-profile{
+  margin:30px auto 10px auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100px;
+  height:100px;
+  border:2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.account .cover-account .img-profile a{
+  position: absolute;
+  padding: 5px 5px 3px 5px;
+  background: #ffffff;
+  border-radius: 50%;
+  color: #4c4d4c;
+  bottom: 0;
+  left: 0;
+}
+
+.account .cover-account .nama{
+  line-height: 9px;
+  font-size: 13px;
+  color:#fff;
+  display: block;
+  font-weight: bold;
+}
+
+.account .cover-account .email{
+  line-height: 10px;
+  font-size: 11px;
+  color:#e8e8e8;
+}
+
 .footer{
+  z-index:991;
+  /* width: 100%; */
+  position:fixed;
+  bottom:0;
   background: #ffffff!important;
   padding: 10px 1rem;
   transition: bottom 0.5s;
-  -webkit-box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
-  -moz-box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
-  box-shadow: -2px 9px 13px 4px rgba(0,0,0,0.87);
+  -webkit-box-shadow: 2px -2px 5px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px -2px 5px -3px rgba(0,0,0,0.75);
+box-shadow: 2px -2px 5px -3px rgba(0,0,0,0.75);
 }
 
 .footer a{
@@ -258,4 +332,26 @@
 
 .footer a.active{
   color:#e90808;
+}
+
+.register .form-group .form-control
+{
+  border-top: none!important;
+  border-left: none!important;
+  border-right: none!important;
+  border-bottom: 1px solid #b1b1b1!important;
+  /* border: none!important; */
+  padding-left:2px !important;
+  border-radius: 0;
+}
+
+.register .form-group select.form-control{
+  outline: 0!important;
+}
+
+.register .form-group .form-control:focus{
+ border-bottom: 2px solid #e06666!important;
+ transition-property: left right;
+ transition-duration: 0.3s;
+ transition-timing-function: ease-out;
 }
