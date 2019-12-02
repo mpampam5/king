@@ -34,16 +34,13 @@
     <h5 class="mb-4">Aturan & Persyaratan</h5>
     <p style="font-size:12px;">SYARAT MENJADI PENGURUS</p>
     <ul>
-      <li>1. Warga Negara Indonesia</li>
-      <li>2. Sehat jasmani & rohani</li>
-      <li>3. Sudah terdaftar sebagai anggota organisasi</li>
-      <li>4. Berumur 17 tahun atau sudah pernah menikah</li>
-      <li>5. Bersedia aktif di organisasi</li>
-      <li>6. Patuh & Taat kepada AD/ART organisasi</li>
+      <?php foreach ($row as $aturan): ?>
+        <li><?=$aturan->keterangan?></li>
+      <?php endforeach; ?>
     </ul>
 
     <div class="mt-4">
-      <label style="font-size:10px;">Klik untuk mendownload AD/ART JPK<span class="text-danger">P</span></label><br>
+      <label style="font-size:10px;"><b>Klik untuk mendownload AD/ART JPK<span class="text-danger">P</span><b></label><br>
       <a href="#" class="btn btn-md btn-danger">Download AD/ART</a>
     </div>
   </div>

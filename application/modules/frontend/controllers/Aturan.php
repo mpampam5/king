@@ -12,7 +12,8 @@ class Aturan extends MY_Controller{
   function index()
   {
     $this->template->set_title("information");
-    $this->template->view("content/aturan/index");
+    $data['row'] = $this->db->get("aturan")->result();
+    $this->template->view("content/aturan/index",$data);
   }
 
 }

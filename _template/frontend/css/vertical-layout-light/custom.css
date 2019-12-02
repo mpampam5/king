@@ -131,10 +131,11 @@
 }
 
 .rounded-menu a p{
-  padding: 4px 10px 0 4px;
+  padding: 4px 4px 0 4px;
   font-size: 10px;
   line-height: 12px;
   color: #e20e0e;
+  font-weight: bold;
 }
 
 
@@ -146,15 +147,17 @@
 
 .rounded-menu.active a p{
   color: #3b3b3b;
+
 }
 
 
 .aturan ul{
-  list-style: none;
+  list-style-type:decimal;
+  text-align: left;
 }
 
 .aturan ul li{
-  font-size: 12px;
+  font-size: 13px;
 }
 
 
@@ -162,11 +165,12 @@
 {
   background-color: #fff;
   padding: 15px;
-  margin: 3px;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  margin-top: 3px;
+  margin-bottom: 3px;
+  /* border-radius: 4px; */
+  /* -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
   -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
-  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42); */
 }
 
 .jadwal_acara .content b {
@@ -185,11 +189,12 @@
 {
   background-color: #fff;
   padding: 15px;
-  margin: 5px;
-  border-radius: 4px;
-  -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  margin-top: 3px;
+  margin-bottom: 3px;
+  /* border-radius: 4px; */
+  /* -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
   -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
-  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
+  box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42); */
 }
 
 .kegiatan .content b {
