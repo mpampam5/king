@@ -42,10 +42,14 @@
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
   background: #ff0000!important;
 }
-
+.owl-carousel.full-width .owl-nav{
+  top: 40%;
+}
 
 .owl-carousel img{
   border-radius: 0!important;
+  max-height: 250px!important;
+  min-height: 250px!important;
 }
 
 .owl-carousel.full-width .owl-dots{
@@ -165,8 +169,8 @@
 {
   background-color: #fff;
   padding: 15px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: 2px;
+  margin-bottom: 2px;
   /* border-radius: 4px; */
   /* -webkit-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);
   -moz-box-shadow: 3px 2px 4px -1px rgba(0,0,0,0.42);

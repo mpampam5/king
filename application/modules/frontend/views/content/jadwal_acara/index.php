@@ -31,71 +31,70 @@
 
 
   <div class="mt-3 pb-5 p-3 jadwal_acara">
-    <h5 class="mb-1 text-center"> Jadwal Acara</h5>
-    <div class="row mt-2" id="postList">
-
-      <?php if (!empty($posts)): ?>
-        <?php foreach ($posts as $row): ?>
-          <div class="col-md-12 content">
-              <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-              <b>Detail Acara :</b>
-              <table>
-                <tr>
-                  <td>Tanggal</td>
-                  <td>: 10 november 2019</td>
-                </tr>
-
-                <tr>
-                  <td>Pukul</td>
-                  <td>: 13:00 WITA s/d selesai</td>
-                </tr>
-
-                <tr>
-                  <td>Alamat</td>
-                  <td>: Jl. Mannuruki raya lr garden pondok 16</td>
-                </tr>
-              </table>
-          </div>
-        <?php endforeach; ?>
-        <div id="preloader" class="loaders text-center" style="display:none;">
-          <img src="<?php echo base_url('_template/preloader.svg'); ?>">
-        </div>
-        <?php else: ?>
-          <p>Post(s) not available.</p>
-      <?php endif; ?>
-
-
-    </div>
+    <h5 class="mb-3 text-center"> Jadwal Acara</h5>
+    <div class="row mt-2" id="load_data"></div>
+    <div id="load_data_message"></div>
   </div>
-
-
 
 </div>
 
 
-<script type="text/javascript">
-$(document).ready(function () {
-    var page =1;
-    var total_pages = <?=$total_pages?>;
-    $(window).scroll(function() {
-	    if($(window).scrollTop() + $(window).height() >= $("#postList").height()) {
-	        page++;
-	        loadData(page);
-	    }
-	});
+<script>
+$(document).ready(function(){
 
-    /*Load more Function*/
-    function loadData(page) {
-        $("#preloader").show();
-        $.ajax({
-            url: "<?=base_url()?>frontend/jadwal_acara",
-            type: "get",
-            data:{page:page}
-        })
-        .done(function(content) {
-            $("#preloader").hide();
-            $("#postList").append(content);
-        });
+var limit = 10;
+  var start = 0;
+  var action = 'inactive';
+
+  function lazzy_loader(limit)
+  {
+    var output = '<p class="text-center"><img src="<?=base_url()?>_template/preloader.svg" style="width:40px;height:40px;"></p>';
+    $('#load_data_message').html(output);
+  }
+
+  lazzy_loader(limit);
+
+  function load_data(limit, start)
+  {
+    $.ajax({
+      url:"<?php echo base_url(); ?>frontend/jadwal_acara/fetch",
+      method:"POST",
+      data:{limit:limit, start:start},
+      cache: false,
+      success:function(data)
+      {
+        if(data == '')
+        {
+          $('#load_data_message').html('<p style="font-size:12px" class="text-center mt-3">No more result found</p>');
+          action = 'active';
+        }
+        else
+        {
+          $('#load_data').append(data);
+          $('#load_data_message').html('');
+          action = 'inactive';
+        }
+      }
+    })
+  }
+
+  if(action == 'inactive')
+  {
+    action = 'active';
+    load_data(limit, start);
+  }
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+    {
+      lazzy_loader(limit);
+      action = 'active';
+      start = start + limit;
+      setTimeout(function(){
+        load_data(limit, start);
+      }, 1000);
     }
+  });
+
 });
 </script>

@@ -32,64 +32,71 @@
 
   <div class="mt-3 pb-5 p-3 kegiatan">
     <h5 class="mb-1 text-center"> Kegiatan</h5>
-    <div class="row mt-2">
-      <div class="col-md-12 content">
-          <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-          <p class="text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-          </p>
-          <p class="links text-center">
-            <a href="#">http://localhost/king/frontend/kegiatan.html</a>
-          </p>
-      </div>
-
-      <div class="col-md-12 content">
-          <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-          <p class="text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-          </p>
-          <p class="links text-center">
-            <a href="#">http://localhost/king/frontend/kegiatan.html</a>
-          </p>
-      </div>
-
-      <div class="col-md-12 content">
-          <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-          <p class="text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-          </p>
-          <p class="links text-center">
-            <a href="#">http://localhost/king/frontend/kegiatan.html</a>
-          </p>
-      </div>
-
-      <div class="col-md-12 content">
-          <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-          <p class="text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.
-          </p>
-          <p class="links text-center">
-            <a href="#">http://localhost/king/frontend/kegiatan.html</a>
-          </p>
-      </div>
-
-      <div class="col-md-12 content">
-          <h6 class="text-center text-danger" style="font-size:12px;">Pelantikan Pengurus DPW Pengurus DPW Sulawesi-Selatan</h6>
-          <p class="text">
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures.
-          </p>
-          <p class="links text-center">
-            <a href="#">http://localhost/king/frontend/kegiatan.html</a>
-          </p>
-      </div>
-
-
-
-
-
-    </div>
+    <div class="row mt-2" id="load_data"></div>
+    <div id="load_data_message"></div>
   </div>
 
 
 
 </div>
+
+
+<script>
+$(document).ready(function(){
+
+var limit = 10;
+  var start = 0;
+  var action = 'inactive';
+
+  function lazzy_loader(limit)
+  {
+    var output = '<p class="text-center"><img src="<?=base_url()?>_template/preloader.svg" style="width:40px;height:40px;"></p>';
+    $('#load_data_message').html(output);
+  }
+
+  lazzy_loader(limit);
+
+  function load_data(limit, start)
+  {
+    $.ajax({
+      url:"<?php echo base_url(); ?>frontend/kegiatan/fetch",
+      method:"POST",
+      data:{limit:limit, start:start},
+      cache: false,
+      success:function(data)
+      {
+        if(data == '')
+        {
+          $('#load_data_message').html('<p style="font-size:12px" class="text-center mt-3">No more result found</p>');
+          action = 'active';
+        }
+        else
+        {
+          $('#load_data').append(data);
+          $('#load_data_message').html('');
+          action = 'inactive';
+        }
+      }
+    })
+  }
+
+  if(action == 'inactive')
+  {
+    action = 'active';
+    load_data(limit, start);
+  }
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() + $(window).height() > $("#load_data").height() && action == 'inactive')
+    {
+      lazzy_loader(limit);
+      action = 'active';
+      start = start + limit;
+      setTimeout(function(){
+        load_data(limit, start);
+      }, 1000);
+    }
+  });
+
+});
+</script>

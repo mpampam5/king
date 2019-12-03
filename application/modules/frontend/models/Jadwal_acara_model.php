@@ -3,18 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal_acara_model extends CI_Model{
 
-  public function getPosts($limit,$start)
-    {
-        $this->db->limit($limit, $start);
-        $query = $this->db->get('jadwal_acara');
-        return $query->result();
-    }
-
-    public function getPostsCount()
-    {
-        $this->db->select('id_jadwal_acara');
-        $this->db->from('jadwal_acara');
-        return $this->db->count_all_results();
-    }
+function fetch_data($limit, $start)
+ {
+  $this->db->select("*");
+  $this->db->from("jadwal_acara");
+  $this->db->where("is_delete","0");
+  $this->db->order_by("id_jadwal_acara", "DESC");
+  $this->db->limit($limit, $start);
+  $query = $this->db->get();
+  return $query;
+ }
 
 }

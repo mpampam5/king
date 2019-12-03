@@ -7,24 +7,60 @@ class Jadwal_acara extends MY_Controller{
   {
     parent::__construct();
     $this->load->model("Jadwal_acara_model","model");
-    $this->perPage = 4;
   }
 
   function index()
   {
     $this->template->set_title("information");
-    $totalPosts = $this->model->getPostsCount();
-    $data['total_pages']  = ceil($totalPosts/$this->perPage);
-    if (!empty($this->input->get("page"))) {
-      $start = $this->perPage * $this->input->get("page");
-      $data['posts'] = $this->model->getPosts($this->perPage,$start);
-      $this->load->view("content/jadwal_acara/load_more",$data);
-    }else {
-      $start = 0;
-      $data['posts'] = $this->model->getPosts($this->perPage,$start); //limit,start
-      $this->template->view('content/jadwal_acara/index',$data);
-    }
+    $this->template->view('content/jadwal_acara/index');
   }
+
+function fetch()
+ {
+  $output = '';
+  $data = $this->model->fetch_data($this->input->post('limit'), $this->input->post('start'));
+  if($data->num_rows() > 0)
+  {
+   foreach($data->result() as $row)
+   {
+
+     if ($row->sampai_tanggal==="1970-01-01") {
+         $tgl_selesai = "selesai";
+     }else {
+        $tgl_selesai = long_indo($row->sampai_tanggal);
+     }
+
+     if ($row->sampai_pukul=="00:00:00") {
+       $sampai_pukul = "selesai";
+     }else {
+       $sampai_pukul = date("H:i",strtotime($row->sampai_pukul));
+     }
+
+    $output .= '<div class="col-md-12 content">
+                  <h6 class="text-center text-danger" style="font-size:12px;">'.$row->title.'</h6>
+                  <b>Detail Acara :</b>
+                  <table>
+                    <tr>
+                      <td>Tanggal</td>
+                      <td>: '.long_indo($row->tanggal).'&nbsp;-&nbsp;'.$tgl_selesai.'
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>Pukul</td>
+                      <td>: '.date("H:i",strtotime($row->pukul)).'  - '.$sampai_pukul.' '.strtoupper($row->zona_waktu).'</td>
+                    </tr>
+
+                    <tr>
+                      <td>Alamat</td>
+                      <td>: '.$row->alamat.'</td>
+                    </tr>
+                  </table>
+              </div>';
+   }
+  }
+  echo $output;
+ }
 
 
 

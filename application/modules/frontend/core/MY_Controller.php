@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller{
       // if ($this->session->userdata("logins")!=true) {
       //     redirect(site_url("panel-admin"),"refresh");
       // }
-      $this->load->helper(array("enc_gue"));
+      $this->load->helper(array("frontend","enc_gue","tanggal_indonesia"));
       $this->load->library(array("template"));
     }
 

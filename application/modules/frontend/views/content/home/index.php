@@ -40,7 +40,7 @@
 
 <div class="content-text p-3 mt-1 bg-white">
   <p class="text-center" style="font-size:14px">
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+    <?=setting_system("dashboard_tentang")?>
   </p>
 </div>
 
@@ -70,15 +70,14 @@
   </div>
 
   <p style="font-size:12px;">
-    Perumahan Pratama Residence Blok A No.21 Duren Jaya Bekasi Timur, Jawa Barat , Indonesia.
+    <?=setting_system("alamat")?>
   </p>
 </div>
 
 
 <div class="text-tentang text-center p-4">
   <p>
-    <b>JPK<span class="text-danger">P</span></b> menjadi relawan terdepan memastikan, mengawal, mendampingi hingga melaporkan jika ada penyalahgunaan dalam memastikan realisasi program strategis Bapak Presiden R.I
-
+    <?=setting_system("dashboard_tentang_footer")?>
   </p>
 </div>
 
