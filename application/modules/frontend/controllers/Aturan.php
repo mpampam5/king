@@ -12,7 +12,7 @@ class Aturan extends MY_Controller{
   function index()
   {
     $this->template->set_title("information");
-    $data['row'] = $this->db->get("aturan")->result();
+    $data['row'] = $this->db->get_where("aturan",["is_delete"=>"0"])->result();
     $this->template->view("content/aturan/index",$data);
   }
 

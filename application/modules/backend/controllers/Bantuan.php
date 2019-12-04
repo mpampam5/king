@@ -39,7 +39,7 @@ class Bantuan extends MY_Controller{
       $row = array();
       $row[] = $no;
       $row[] = date("d/m/Y H:i",strtotime($rows->created));
-      $row[] = substr($rows->keterangan,0,80)."...";
+      $row[] = substr($rows->keterangan,0,60)."...";
       $row[] = '<a href="'.site_url("backend/bantuan/detail/".enc_uri($rows->id_bantuan_khusus)).'" id="detail" class="btn btn-xs btn-primary"><i class="fas fa-file-alt"></i> Detail</a>&nbsp;
                 <a href="'.site_url("backend/bantuan/edit/".enc_uri($rows->id_bantuan_khusus)).'" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
                 <a href="'.site_url("backend/bantuan/delete/".enc_uri($rows->id_bantuan_khusus)).'" id="delete" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i> Hapus</a>&nbsp;

@@ -221,8 +221,15 @@
 				                    </li>
 
 														<li>
-				                        <a class="nav-link" href="mailbox-folder.html">
-				                            <i class="fas fa-tasks" aria-hidden="true"></i>
+				                        <a class="nav-link" href="<?=site_url("backend/aturan")?>">
+				                            <i class="fas fa-balance-scale" aria-hidden="true"></i>
+				                            <span>Aturan & Persyaratan</span>
+				                        </a>
+				                    </li>
+
+														<li>
+				                        <a class="nav-link" href="<?=site_url("backend/slider")?>">
+				                            <i class="fas fa-file-image" aria-hidden="true"></i>
 				                            <span>Slider Dashboard</span>
 				                        </a>
 				                    </li>
