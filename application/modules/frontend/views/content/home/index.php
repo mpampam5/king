@@ -6,36 +6,21 @@
 
 
   <div class="owl-carousel owl-theme full-width">
+    <?php $sld = $this->db->get_where("slider",["is_delete"=>"0"]); ?>
+    <?php foreach ($sld->result() as $slider): ?>
   <div class="item">
     <div class="card text-white">
-      <img class="card-img" src="<?=base_url()?>_template/frontend/images/carousel/banner_4.jpg" alt="Card image">
+      <img class="card-img" src="<?=base_url()?>_template/files/<?=$slider->image?>" alt="Card image">
       <div class="card-img-overlay d-flex">
         <div class="mt-auto text-center w-100">
-          <h6 class="card-text mb-4 font-weight-normal">Nulla vitae elit libero, a pharetra augue mollis interdum.</h6>
+          <h6 class="card-text mb-4 font-weight-normal"><?=$slider->quotes?></h6>
         </div>
       </div>
     </div>
   </div>
-  <div class="item">
-    <div class="card text-white">
-      <img class="card-img" src="<?=base_url()?>_template/frontend/images/carousel/banner_5.jpg" alt="Card image">
-      <div class="card-img-overlay d-flex">
-        <div class="mt-auto text-center w-100">
-          <h6 class="card-text mb-4 font-weight-normal">Nulla vitae elit libero, a pharetra augue mollis interdum.</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="item">
-    <div class="card text-white">
-      <img class="card-img" src="<?=base_url()?>_template/frontend/images/carousel/banner_6.jpg" alt="Card image">
-      <div class="card-img-overlay d-flex">
-        <div class="mt-auto text-center w-100">
-          <h6 class="card-text mb-4 font-weight-normal">Nulla vitae elit libero, a pharetra augue mollis interdum.</h6>
-        </div>
-      </div>
-    </div>
-  </div>
+<?php endforeach; ?>
+
+
 </div>
 
 <div class="content-text p-3 mt-1 bg-white">

@@ -26,12 +26,12 @@
             <label class="label-title" id="foto_personal">Image</label>
             <input type="file" name="foto_personal" id="upload-foto" class="file-upload-default" accept="image/JPEG,image/PNG" style="display:none;">
             <div class="input-group col-xs-12">
-              <input type="text" name="foto_personal" id="image-foto" class="form-control file-upload-info"  readonly placeholder="No image">
+              <input type="text" name="foto_personal" id="image-foto" class="form-control file-upload-info" value="<?=$image?>"  readonly placeholder="No image">
               <span class="input-group-append">
                 <button class="file-upload-browse btn btn-primary" id="btn-upload-foto" type="button"><i class="fas fa-file-image"></i>&nbsp;Upload</button>
               </span>
             </div>
-
+						 <span class="text-primary">* Untuk hasil yang bagus, Gambar harus ukuran 500*350px</span>
           </div>
 
 
@@ -95,7 +95,7 @@ $(function () {
                     showHideTransition: 'slide',
                     icon: json.header_alert,
                     loaderBg: '#f96868',
-                    position: 'top-center',
+                    position: 'bottom-right',
                   });
 
                 }else {
@@ -110,7 +110,7 @@ $(function () {
                     showHideTransition: 'slide',
                     icon: json.header_alert,
                     loaderBg: '#f96868',
-                    position: 'top-center',
+                    position: 'bottom-right',
                   });
                 }
               }

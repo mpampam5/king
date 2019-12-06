@@ -31,10 +31,10 @@
                   <table class="table table-bordered table-striped mb-0" id="table">
 											<thead>
 												<tr>
-													<th>No</th>
-													<th>image</th>
-													<th>quotes</th>
-                          <th class="text-center">#</th>
+													<th width="10">No</th>
+													<th width="100">image</th>
+													<th width="200">quotes</th>
+                          <th width="150" class="text-center">#</th>
 												</tr>
 											</thead>
 
@@ -45,12 +45,15 @@
                         <tr>
                           <td><?=$no++?></td>
                           <td>
-                            <a href="#"><i class="fas fa-file-image"></i> image</a>
+                            <a data-fancybox="gallery" class="image-popup-no-margins" href="<?=base_url()?>_template/files/<?=$row->image?>">
+
+															<!-- <i class="fas fa-file-image"></i> image</a> -->
+															<img class="img-fluid" src="<?=base_url()?>_template/files/<?=$row->image?>" width="75">
                           </td>
                           <td><?=$row->quotes?></td>
                           <td class="text-center">
-                            <a href="#" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
-                            <a href="#" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i> Hapus</a>
+                            <a href="<?=site_url("backend/slider/edit/".enc_uri($row->id_slider))?>" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+                            <a href="<?=site_url("backend/slider/delete/".enc_uri($row->id_slider))?>" id="delete" class="btn btn-xs btn-danger"><i class="fas fa-trash"></i> Hapus</a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
@@ -63,3 +66,43 @@
     </div>
 	<!-- end: page -->
 </section>
+
+
+<script type="text/javascript">
+
+$(document).on("click","#delete",function(e){
+	e.preventDefault();
+	$('.modal-dialog').removeClass('modal-lg')
+										.removeClass('modal-md')
+										.addClass('modal-sm');
+	$("#modalTitle").text('Please Confirm');
+	$('#modalContent').html(`<p>Are you sure you want to delete?</p>
+														<button type='button' class='btn btn-default btn-sm' data-dismiss='modal'>Cancel</button>
+														<button type='button' class='btn btn-primary btn-sm' id='ya-hapus' data-id=`+$(this).attr('alt')+`  data-url=`+$(this).attr('href')+`>Yes, i'm sure</button>
+														`);
+	$("#modalGue").modal('show');
+});
+
+
+$(document).on('click','#ya-hapus',function(e){
+	$(this).prop('disabled',true)
+					.text('Processing...');
+	$.ajax({
+					url:$(this).data('url'),
+					type:'post',
+					cache:false,
+					dataType:'json',
+					success:function(json){
+						$('#modalGue').modal('hide');
+						$.toast({
+							text: json.alert,
+							showHideTransition: 'slide',
+							icon: json.alert_header,
+							loaderBg: '#f96868',
+							position: 'bottom-right'
+						});
+						location.reload();
+					}
+				});
+});
+</script>

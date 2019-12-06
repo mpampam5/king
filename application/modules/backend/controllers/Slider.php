@@ -51,7 +51,7 @@ class Slider extends MY_Controller{
           $this->model->get_insert("slider",$data);
 
           //logs Activity
-          $ket_logs = array_merge(["id_aturan"=>$this->db->insert_id()],$data);
+          $ket_logs = array_merge(["id_slider"=>$this->db->insert_id()],$data);
           logs("slider","add",json_encode($ket_logs));
 
           $json['alert'] = "add data successfully";
@@ -67,9 +67,75 @@ class Slider extends MY_Controller{
     }
   }
 
+  function edit($id)
+  {
+    if ($row = $this->model->get_where("slider",["id_slider"=>dec_uri($id)])) {
+      $this->template->set_title("Slider Dashboard");
+      $data = array('action'  => site_url("backend/slider/update_action/$id"),
+                    "button"  => "edit",
+                    "image" => set_value("image",$row->image),
+                    "quotes" => set_value("quotes",$row->quotes),
+                    );
+      $this->template->view("content/slider/form",$data);
+    }
+  }
+
+
+  function update_action($id)
+  {
+    if ($this->input->is_ajax_request()) {
+        $json = array('success'=>false, 'alert'=>array());
+        $this->_rules();
+        if ($this->form_validation->run()) {
+
+          $data = [
+                    "image"  => $this->input->post("foto_personal",true),
+                    "quotes"  => $this->input->post("quotes",true),
+                    "modified"     => date('Y-m-d H:i:s')
+                  ];
+
+          $this->model->get_update("slider",$data,["id_slider"=>dec_uri($id)]);
+
+          //logs Activity
+          $ket_logs = array_merge(["id_slider"=>dec_uri($id)],$data);
+          logs("slider","update",json_encode($ket_logs));
+
+          $json['alert'] = "update data successfully";
+          $json['success'] =  true;
+        }else {
+          foreach ($_POST as $key => $value)
+            {
+              $json['alert'][$key] = form_error($key);
+            }
+        }
+
+        echo json_encode($json);
+    }
+  }
 
 
 
+
+
+    function delete($id)
+    {
+      if ($this->input->is_ajax_request()) {
+        $json = array('alert_header'=>array(), 'alert'=>array());
+        if ($this->model->get_update("slider",["modified" => date('Y-m-d H:i:s'), "is_delete" => "1"],["id_slider" => dec_uri($id)])) {
+            //logs Activity
+            logs("slider","delete",json_encode(["id_slider" => dec_uri($id)]));
+
+            $json['alert_header'] = "success";
+            $json['alert']        = "delete successfully";
+        }else {
+            $json['alert_header'] = "error";
+            $json['alert']        = "delete unsuccessful";
+        }
+
+
+        echo json_encode($json);
+      }
+    }
 
 
 

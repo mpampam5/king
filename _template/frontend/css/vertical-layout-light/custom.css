@@ -56,6 +56,10 @@
   margin-top: 3px;
 }
 
+.owl-theme .owl-nav [class*=owl-]:hover{
+  background: none!important;
+}
+
 .header-menu{
   background-color: #ff0000;
   padding: 10px;

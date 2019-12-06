@@ -32,8 +32,11 @@
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/skins/default.css" />
 
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/jquery-toast-plugin/jquery.toast.min.css">
+		<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/magnific-popup/magnific-popup.css" />
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?=base_url()?>_template/backend/css/custom.css">
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 
 
 		<!-- Head Libs -->
@@ -41,9 +44,11 @@
 		<script src="<?=base_url()?>_template/backend/vendor/jquery/jquery.js"></script>
 		<script src="<?=base_url()?>_template/backend/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="<?=base_url()?>_template/backend/vendor/popper/umd/popper.min.js"></script>
+		<script src="<?=base_url()?>_template/backend/vendor/magnific-popup/jquery.magnific-popup.js"></script>
 		<script src="<?=base_url()?>_template/backend/vendor/bootstrap/js/bootstrap.js"></script>
 		<script src="<?=base_url()?>_template/backend/vendor/jquery-toast-plugin/jquery.toast.min.js"></script>
-
+		<script src="<?=base_url()?>_template/backend/js/examples/examples.lightbox.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	</head>
 	<body>
 		<section class="body">
@@ -231,6 +236,13 @@
 				                        <a class="nav-link" href="<?=site_url("backend/slider")?>">
 				                            <i class="fas fa-file-image" aria-hidden="true"></i>
 				                            <span>Slider Dashboard</span>
+				                        </a>
+				                    </li>
+
+														<li>
+				                        <a class="nav-link" href="<?=site_url("backend/tentang")?>">
+				                            <i class="fas fa-archive" aria-hidden="true"></i>
+				                            <span>Tentang JPKP</span>
 				                        </a>
 				                    </li>
 

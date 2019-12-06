@@ -149,6 +149,14 @@
               <span class="menu-title">Tujuan</span>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="../apps/todo.html">
+              <i class="ti-wallet menu-icon"></i>
+              <span class="menu-title">PPOB</span>
+            </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="../apps/gallery.html">
               <i class="ti-power-off menu-icon"></i>

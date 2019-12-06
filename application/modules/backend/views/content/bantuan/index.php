@@ -51,8 +51,8 @@
 
 $(document).ready(function(){
   var table = $('#table').dataTable({
-    dom: '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p',
-		processing: true,
+    "dom": '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p',
+		"processing": true,
     'language':{
        "loadingRecords": "&nbsp;",
        "processing": "Loading..."
