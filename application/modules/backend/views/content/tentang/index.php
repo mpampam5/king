@@ -23,7 +23,7 @@
 					<!-- start: page -->
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-10 mx-auto">
           <section class="card">
             <div class="card-body">
 
@@ -44,8 +44,8 @@
                           <td><?=$no++?></td>
                           <td><?=$row->title?></td>
                           <td class="text-center">
-                            <a href="<?=site_url("backend/slider/detail/".enc_uri(1))?>" class="btn btn-xs btn-primary"><i class="fas fa-file"></i> Detail</a>
-                            <a href="<?=site_url("backend/slider/edit/".enc_uri(1))?>" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+                            <a href="<?=site_url("backend/tentang/detail/$row->slug")?>" class="btn btn-xs btn-primary"><i class="fas fa-file"></i> Detail</a>
+                            <a href="<?=site_url("backend/tentang/edit/$row->slug")?>" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
                           </td>
                         </tr>
                       <?php endforeach; ?>

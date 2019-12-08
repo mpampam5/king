@@ -29,6 +29,19 @@
 <!-- endinject -->
 <!-- Custom js for this page-->
 <!-- End custom js for this page-->
+<script type="text/javascript">
+(function($) {
+  'use strict';
+
+  $('#status').fadeOut();
+  $('#preloader').delay(350).fadeOut('slow');
+  $('#preloader .textload').delay(0).fadeOut('slow');
+  $('body').delay(350).css({
+      'overflow': 'visible'
+  });
+
+})(jQuery);
+</script>
 </body>
 
 </html>

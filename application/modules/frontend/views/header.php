@@ -22,6 +22,7 @@
 </head>
 
 <body>
+  <div id="preloader"><div class="textload">Loading</div><div id="status"><div class="spinner"></div></div></div>
   <div class="container-scroller">
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
