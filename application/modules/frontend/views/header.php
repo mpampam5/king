@@ -113,8 +113,8 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="header-menu">
           <img src="<?=base_url()?>_template/frontend/images/faces/face13.jpg" alt="profile" class="img-sm rounded-circle">
-          <span class="nama">Muhammad Irfan Ibnu</span>
-          <span class="email">mpampam5@gmail.com</span>
+          <span class="nama"><?=profile("nama")?></span>
+          <span class="email"><?=profile("email")?></span>
         </div>
 
 
@@ -126,40 +126,40 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../widgets/widgets.html">
+            <a class="nav-link" href="<?=site_url("frontend/page/index/tentang")?>">
               <i class="ti-book menu-icon"></i>
               <span class="menu-title">Tentang JPKP</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="../apps/email.html">
+            <a class="nav-link" href="<?=site_url("frontend/page/index/legalitas")?>">
               <i class="ti-receipt menu-icon"></i>
               <span class="menu-title">Legalitas Lengkap</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../apps/calendar.html">
+            <a class="nav-link" href="<?=site_url("frontend/page/index/visi-misi")?>">
               <i class="ti-agenda menu-icon"></i>
               <span class="menu-title">Visi & Misi</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../apps/todo.html">
+            <a class="nav-link" href="<?=site_url("frontend/page/index/tujuan")?>">
               <i class="ti-check-box menu-icon"></i>
               <span class="menu-title">Tujuan</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="../apps/todo.html">
+            <a class="nav-link" href="<?=site_url("frontend/ppob")?>">
               <i class="ti-wallet menu-icon"></i>
-              <span class="menu-title">PPOB</span>
+              <span class="menu-title">Layanan PPOB</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="../apps/gallery.html">
+            <a class="nav-link" href="<?=site_url("frontend/login/logout")?>">
               <i class="ti-power-off menu-icon"></i>
               <span class="menu-title">Logout</span>
             </a>

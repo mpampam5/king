@@ -367,8 +367,15 @@ iframe {
   /* font-size: 12px; */
   color:#0cd71a;
 }
-.account{
+.page h5{
+  color: #585858;
+}
 
+.page .content{
+  color: #585858;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 14px;
 }
 
 .account .cover-account{

@@ -12,7 +12,9 @@ class Home extends MY_Controller{
   function index()
   {
     $this->template->set_title("home");
-    $this->template->view("content/home/index");
+    $data['terverifikasi'] = $this->db->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0"])->num_rows();
+    $data['belum_terverifikasi'] = $this->db->get_where("tb_person",["is_verifikasi"=>"0","is_delete"=>"0"])->num_rows();
+    $this->template->view("content/home/index",$data);
   }
 
 }

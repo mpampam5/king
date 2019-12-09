@@ -36,12 +36,12 @@
 
   <div class="mt-1 rounded-content">
     <div class="rounded-home">
-      <span class="badge badge-outline-danger">3595</span>
+      <span class="badge badge-outline-danger"><?=$belum_terverifikasi?></span>
       <p class="text-center">Relawan Terdaftar belum terverifikasi</p>
     </div>
 
     <div class="rounded-home">
-      <span class="badge badge-outline-danger">35</span>
+      <span class="badge badge-outline-danger"><?=$terverifikasi?></span>
       <p class="text-center">Relawan Terdaftar sudah terverifikasi</p>
     </div>
 

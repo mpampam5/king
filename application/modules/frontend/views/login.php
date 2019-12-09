@@ -13,6 +13,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>_template/frontend/images/favicon.png" />
 
@@ -186,14 +187,16 @@
           <div class="row">
             <div class="col-lg-8 mx-auto">
               <?=$this->session->flashdata("reg_success"); ?>
-              <form class="" action="index.html" method="post">
+
+              <form class="" action="<?=site_url("frontend/login/action")?>" id="form" autocomplete="off">
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ti ti-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Email">
+                    <input type="text" class="form-control" name="email" placeholder="Email" aria-label="Email">
                   </div>
+                  <div id="email"></div>
                 </div>
 
                 <div class="form-group">
@@ -201,16 +204,18 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ti ti-lock"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+                    <input type="password" class="form-control password" name="password" placeholder="Password" aria-label="Password">
                   </div>
+                  <div id="password"></div>
                 </div>
 
-                <p class="text-center">
+
+                <p class="text-center mt-3">
                   <span><a href="" class="text-white">Lupa password?</a></span>
                 </p>
 
-                <div class="text-center mt-5">
-                  <a href="#" class="btn btn-lg btn-danger bg-white text-danger">LOG IN</a>
+                <div class="text-center mt-3">
+                  <button type="submit" id="submit" class="btn btn-lg btn-danger bg-white text-danger">LOG IN</button>
                   <p class="mb-3 mt-3">Belum Punya Akun ?</p>
                   <a href="<?=site_url("frontend/register")?>" class="btn btn-lg btn-danger bg-white text-danger">REGISTER</a>
                 </div>
@@ -244,6 +249,7 @@
   <!-- inject:js -->
   <script src="<?=base_url()?>_template/frontend/js/off-canvas.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/hoverable-collapse.js"></script>
+  <script src="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/template.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/settings.js"></script>
   <script src="<?=base_url()?>_template/frontend/js/todolist.js"></script>
@@ -261,6 +267,47 @@
     });
 
   })(jQuery);
+
+
+  $("#form").submit(function(e){
+    e.preventDefault();
+    var me = $(this);
+    $('#submit').prop('disabled', true)
+                 .html('<i class="fa fa-spinner fa-spin"></i>&nbsp;&nbsp;Loading...');
+    $.ajax({
+      url      : me.attr('action'),
+      type     : 'POST',
+      data     :me.serialize(),
+      dataType : 'JSON',
+      success:function(json){
+       if (json.success==true) {
+         if (json.valid==true) {
+           window.location.href = json.url;
+         }else {
+           $(".password").val('');
+           $('#submit').prop('disabled', false).text('LOG IN');
+           $.toast({
+             // heading: 'Gagal Login',
+             text: json.alert,
+             showHideTransition: 'slide',
+             icon: 'error',
+             loaderBg: '#ffc700',
+             position: 'bottom-center'
+           });
+           $('.error.text-white').remove();
+         }
+       }else {
+         $.each(json.alert, function(key, value) {
+           var element = $('#' + key);
+           $('#submit').prop('disabled', false).text('LOG IN');
+           $(element).find('.error.text-white').remove();
+           $(element).html(value);
+         });
+       }
+     }
+    });
+  })
+
   </script>
 </body>
 </html>

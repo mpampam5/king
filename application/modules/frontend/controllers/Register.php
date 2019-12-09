@@ -11,9 +11,13 @@ class Register extends CI_Controller{
 
   function index()
   {
+    if ($this->session->userdata("logins_person")!=true) {
     $data['struktur_pengurus'] =  $this->db->get("struktur_pengurus")->result();
     $data["provinsi"] = $this->db->get("wil_provinsi")->result();
     $this->load->view("register",$data);
+  }else {
+    redirect(site_url("frontend/home"),"refresh");
+  }
   }
 
 

@@ -11,7 +11,11 @@ class Start extends CI_Controller{
 
   function index()
   {
-    $this->load->view("start");
+    if ($this->session->userdata("logins_person")!=true) {
+        $this->load->view("start");
+    }else {
+      redirect(site_url("frontend/home"),"refresh");
+    }
   }
 
 }
