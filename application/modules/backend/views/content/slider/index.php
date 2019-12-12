@@ -13,6 +13,7 @@
 							<i class="fas fa-home"></i>
 						</a>
 					</li>
+					<li><span>Pengaturan System</span></li>
 					<li><span>Slider Dashboard</span></li>
 					<li><span>List</span></li>
 				</ol>
@@ -24,6 +25,7 @@
 
       <div class="row">
         <div class="col">
+					<a href="<?=site_url("backend/system_setting")?>" class="btn btn-sm btn-default mb-2"><i class="fas fa-cogs"></i> Pengaturan System</a>
           <a href="<?=site_url("backend/slider/add")?>" class="btn btn-sm btn-success mb-2"><i class="fas fa-plus"></i> Tambah</a>
           <section class="card">
             <div class="card-body">

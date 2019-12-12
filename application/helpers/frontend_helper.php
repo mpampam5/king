@@ -39,11 +39,23 @@ function profile($field)
                           tb_person.is_delete,
                           tb_person.created,
                           tb_person.modified,
+                          tb_person.id_jabatan,
+                          tb_person.wilayah_keanggotaan,
+                          status_jabatan.jabatan,
                           struktur_pengurus.struktur_pengurus")
                   ->from("tb_person")
                   ->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan")
+                  ->join("status_jabatan","status_jabatan.id = tb_person.id_jabatan")
                   ->where("is_delete","0")
                   ->where("id_person",$ci->session->userdata("id_person"))
                   ->get();
   return $qry->row()->$field;
+}
+
+
+function tampilkan_wilayah($table,$where)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where($table,$where);
+  return $query->name;
 }

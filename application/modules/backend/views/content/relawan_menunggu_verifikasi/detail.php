@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="<?=base_url()?>_template/backend/vendor/datatables/media/css/dataTables.bootstrap4.css" />
-<script src="<?=base_url()?>_template/backend/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="<?=base_url()?>_template/backend/vendor/datatables/media/js/dataTables.bootstrap4.min.js"></script>
-
-
 <section role="main" class="content-body">
 		<header class="page-header">
 			<h2>Detail Relawan Menunggu Verifikasi</h2>
@@ -27,11 +22,15 @@
         <div class="col-md-3">
           <section class="card">
             <div class="card-body">
-              <?php if ($row->foto==""): ?>
-                <div class="foto-profile" style="background-image:url('<?=base_url()?>_template/avatar_default.jpg')"></div>
-                <?php else: ?>
-                <div class="foto-profile" style="background-image:url('<?=base_url()?>_template/profiles/<?=$row->foto?>')"></div>
-              <?php endif; ?>
+							<?php if ($row->foto==""): ?>
+								<a href="<?=base_url()?>_template/avatar_default.jpg" data-fancybox="gallery" class="image-popup-no-margins">
+                	<div class="foto-profile" style="background-image:url('<?=base_url()?>_template/avatar_default.jpg')"></div>
+								</a>
+								<?php else: ?>
+								<a href="<?=base_url()?>_template/profiles/<?=$row->foto?>" data-fancybox="gallery" class="image-popup-no-margins">
+                	<div class="foto-profile" style="background-image:url('<?=base_url()?>_template/profiles/<?=$row->foto?>')"></div>
+								</a>
+							<?php endif; ?>
             </div>
           </section>
         </div>
@@ -40,11 +39,14 @@
         <div class="col-md-9">
           <section class="card">
             <div class="card-body">
+							<h4 class="card-title text-center"> Data Relawan </h4>
+							<hr>
               <table class="table-profile">
                 <tr>
                   <th>Stuktur Kepengurusan</th>
-                  <td>: <span style="font-weight:bold;" class="text-danger"><?=struktur_pengurus($row->id_kepengurusan)?></span></td>
+                  <td>: <span style="font-weight:bold;" class="text-danger"><?=strtoupper(struktur_pengurus($row->id_kepengurusan))?></span></td>
                 </tr>
+
 
                 <tr>
                   <th>NIK</th>
@@ -120,12 +122,13 @@
           <div class="collapse mt-3 mb-5" id="verif-content-collapse">
             <section class="card">
               <div class="card-body">
-                <h4 class="title text-center mb-3">Form Verifikasi</h4>
+								<h4 class="card-title text-center"> Form Verifikasi </h4>
+								<hr>
                 <form action="<?=site_url("backend/relawan_menunggu_verifikasi/verifikasi/".enc_uri($row->id_person))?>" id="form-filter">
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="">No.Id</label>
                     <input type="text" class="form-control" id="no_id" name="no_id" placeholder="Masukkan No.id">
-                  </div>
+                  </div> -->
 
                   <div class="form-group">
                     <label for="">No.SK</label>

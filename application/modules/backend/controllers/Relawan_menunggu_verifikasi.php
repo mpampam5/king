@@ -25,11 +25,11 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
       foreach ($list as $rows) {
 
           $row = array();
-          $row[] = '<span class="text-primary">'.$rows->nik.'</span>';
+          $row[] = '<span>'.$rows->nik.'</span>';
           $row[] = $rows->nama;
           $row[] = $rows->email;
           // $row[] = $rows->telepon;
-          $row[] = '<label class="text-danger">'.$rows->struktur_pengurus.'</label>';
+          $row[] = '<label class="text-primary">'.strtoupper($rows->struktur_pengurus).'</label>';
 
 
           $row[] = '<a href="'.site_url("backend/relawan_menunggu_verifikasi/detail/".enc_uri($rows->id_person)).'" class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="DETAIL"><i class="fas fa-file"></i> Detail & Verifikasi</a>
@@ -67,7 +67,7 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
     if ($id!="") {
         if ($this->input->is_ajax_request()) {
           $json = array('success'=>false, 'alert'=>array());
-          $this->form_validation->set_rules("no_id","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_no_id");
+          // $this->form_validation->set_rules("no_id","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_no_id");
           $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_sk");
           $this->form_validation->set_rules("status_jabatan","*&nbsp;","trim|xss_clean|numeric|required");
           $this->form_validation->set_rules("wilayah_keanggotaan","*&nbsp;","trim|xss_clean|numeric|required");
@@ -77,7 +77,8 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
           $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
 
           if ($this->form_validation->run()) {
-              $data = array('kd_person' => $this->input->post("no_id",true),
+              $data = array(
+                            // 'kd_person' => $this->input->post("no_id",true),
                             'no_sk' => $this->input->post("no_sk",true),
                             'id_jabatan' => $this->input->post("status_jabatan",true),
                             'wilayah_keanggotaan' => $this->input->post("wilayah_keanggotaan",true),

@@ -22,17 +22,17 @@
         <label class="text-success" style="font-weight:bold"><i class="ti-check"></i> TERVERIFIKASI</label>
         <div class="form-group">
           <label for="">Nomor SK</label>
-          <span class="badge badge-danger badge-pill w-100"> 0524/S/DPP-JPKP/VIII/2019/008</span>
+          <span class="badge badge-danger badge-pill w-100"> <?=profile("no_sk")?></span>
         </div>
 
         <div class="form-group">
           <label for="">Status Jabatan Keanggotaan</label>
-          <span class="badge badge-danger badge-pill w-100"> KETUA</span>
+          <span class="badge badge-danger badge-pill w-100"> <?=strtoupper(profile("jabatan"))?></span>
         </div>
 
         <div class="form-group">
           <label for="">Wilayah Keanggotaan</label>
-          <span class="badge badge-danger badge-pill w-100"> SULAWESI SELATAN</span>
+          <span class="badge badge-danger badge-pill w-100"> <?=tampilkan_wilayah("wil_provinsi",["id"=>profile("wilayah_keanggotaan")])?></span>
         </div>
 
          <a href="#" class="btn btn-primary btn-md"><i class="ti-download"></i> DOWNLOAD ID CARD</a>

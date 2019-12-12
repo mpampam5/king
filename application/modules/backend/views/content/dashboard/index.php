@@ -40,7 +40,7 @@
 														</div>
 													</div>
 													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(View All)</a>
+														<a class="text-muted text-uppercase" href="<?=site_url("backend/relawan_terverifikasi")?>">(View All)</a>
 													</div>
 												</div>
 											</div>
@@ -66,7 +66,7 @@
 														</div>
 													</div>
 													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(View All)</a>
+														<a class="text-muted text-uppercase" href="<?=site_url("backend/relawan_menunggu_verifikasi")?>">(View All)</a>
 													</div>
 												</div>
 											</div>

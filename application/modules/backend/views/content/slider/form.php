@@ -8,6 +8,7 @@
 							<i class="fas fa-home"></i>
 						</a>
 					</li>
+					<li><span>Pengaturan System</span></li>
 					<li><span>Slider Dashboard</span></li>
 					<li><span>Form <?=ucfirst($button)?></span></li>
 				</ol>

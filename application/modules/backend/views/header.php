@@ -6,9 +6,7 @@
 		<meta charset="UTF-8">
 
 		<title><?=$title?></title>
-		<meta name="keywords" content="HTML5 Admin Template" />
-		<meta name="description" content="Porto Admin - Responsive HTML5 Template">
-		<meta name="author" content="okler.net">
+		<meta name="author" content="mpampams">
 
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -56,8 +54,8 @@
 			<!-- start: header -->
 			<header class="header">
 				<div class="logo-container">
-					<a href="../2.2.0" class="logo">
-						<img src="<?=base_url()?>_template/backend/img/logo.png" width="75" height="35" alt="Porto Admin" />
+					<a href="<?=site_url("backend/home")?>" class="logo">
+						<img src="<?=base_url()?>_template/backend/img/logo-backend.png" width="200" height="45" alt="JPKP" />
 					</a>
 					<div class="d-md-none toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
 						<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
@@ -128,7 +126,7 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="<?=base_url()?>_template/backend/img/!logged-user.jpg" alt="Joseph Doe" class="rounded-circle" data-lock-picture="img/!logged-user.jpg" />
+								<img src="<?=base_url()?>_template/logo150x150.png" alt="Joseph Doe" class="rounded-circle" data-lock-picture="img/!logged-user.jpg" />
 							</figure>
 							<div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
 								<span class="name"><?=profile_admin("nama")?></span>
@@ -191,13 +189,13 @@
 				                        <ul class="nav nav-children">
 				                            <li>
 				                                <a class="nav-link" href="<?=site_url("backend/relawan_menunggu_verifikasi")?>">
-																					<span class="float-right badge badge-primary"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"0","is_delete"=>"0"])->num_rows()?></span>
+																					<span class="float-right badge badge-danger"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"0","is_delete"=>"0"])->num_rows()?></span>
 				                                    Menunggu Verifikasi
 				                                </a>
 				                            </li>
 				                            <li>
-				                                <a class="nav-link" href="extra-ajax-made-easy.html">
-																					<span class="float-right badge badge-primary"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0"])->num_rows();?></span>
+				                                <a class="nav-link" href="<?=site_url("backend/relawan_terverifikasi")?>">
+																					<span class="float-right badge badge-success"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0"])->num_rows();?></span>
 				                                    Terverifikasi
 				                                </a>
 				                            </li>
@@ -232,12 +230,12 @@
 				                        </a>
 				                    </li>
 
-														<li>
+														<!-- <li>
 				                        <a class="nav-link" href="<?=site_url("backend/slider")?>">
 				                            <i class="fas fa-file-image" aria-hidden="true"></i>
 				                            <span>Slider Dashboard</span>
 				                        </a>
-				                    </li>
+				                    </li> -->
 
 														<li>
 				                        <a class="nav-link" href="<?=site_url("backend/tentang")?>">
@@ -254,18 +252,18 @@
 				                    </li>
 
 														<li>
-				                        <a class="nav-link" href="mailbox-folder.html">
+				                        <a class="nav-link" href="<?=site_url("backend/system_setting")?>">
 				                            <i class="fas fa-cogs" aria-hidden="true"></i>
-				                            <span>Pengaturan</span>
+				                            <span>Pengaturan System</span>
 				                        </a>
 				                    </li>
 
-														<li>
+														<!-- <li>
 				                        <a class="nav-link" href="<?=site_url("")?>">
 				                            <i class="fas fa-file-alt" aria-hidden="true"></i>
 				                            <span>Log Activity Admin</span>
 				                        </a>
-				                    </li>
+				                    </li> -->
 				                </ul>
 				            </nav>
 				        </div>

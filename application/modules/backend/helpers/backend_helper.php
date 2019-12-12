@@ -8,6 +8,13 @@ if ( ! function_exists('sess'))
   }
 }
 
+function setting_system($field)
+{
+  $ci  =& get_instance();
+  $qry = $ci->db->get_where("system",["id"=>999]);
+  return $qry->row()->$field;
+}
+
 if ( ! function_exists('profile_admin'))
 {
   function profile_admin($field)
@@ -49,4 +56,11 @@ function struktur_pengurus($id)
   $ci=get_instance();
   $query = $ci->model->get_where("struktur_pengurus",["id_kepengurusan"=>$id]);
   return $query->struktur_pengurus;
+}
+
+function status_jabatan($id)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where("status_jabatan",["id"=>$id]);
+  return $query->jabatan;
 }

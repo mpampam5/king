@@ -33,11 +33,11 @@
             <div class="stretch-card mb-1">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title"> Search Filter </h4>
+                  <h5 class="card-title text-center"> Search Filter </h5>
                   <hr>
                     <form id="form-filter" autocomplete="off">
                         <div class="row">
-                          <div class="col-sm-2">
+                          <div class="col-sm-3">
                             <div class="form-group">
                               <label for="">NIK</label>
                               <input type="text" class="form-control form-control-sm" id="nik">
@@ -51,7 +51,7 @@
                             </div>
                           </div>
 
-                          <div class="col-sm-2">
+                          <div class="col-sm-3">
                             <div class="form-group">
                               <label for="">Email</label>
                               <input type="text" class="form-control form-control-sm" id="email">
