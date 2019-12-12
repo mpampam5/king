@@ -18,7 +18,11 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>_template/frontend/images/favicon.png" />
 
+  <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.css">
+
   <script src="<?=base_url()?>_template/frontend/vendors/js/vendor.bundle.base.js"></script>
+
+  <script src="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
 </head>
 
 <body>

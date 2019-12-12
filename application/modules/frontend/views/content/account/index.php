@@ -57,12 +57,12 @@ $(function () {
         var file_data = $('#upload-foto').prop('files')[0];
         var form_data = new FormData();
         $("#image-foto").val(fileName);
-        $("#btn-upload-foto").html('<div class="spinner-border spinner-border-sm text-white"></div>');
+
 
         form_data.append('foto_personal', file_data);
 
         $.ajax({
-            url: '<?=site_url("backend/wizard/do_upload")?>',
+            url: '<?=site_url("frontend/account/do_upload")?>',
             dataType: 'json',
             cache: false,
             contentType: false,
@@ -71,23 +71,23 @@ $(function () {
             type: 'post',
             success: function(json){
               if (json.success==true) {
-                button.html('Upload');
+                // button.html('Upload');
                 $.toast({
                   text: json.alert,
                   showHideTransition: 'slide',
                   icon: json.header_alert,
                   loaderBg: '#f96868',
-                  position: 'top-center',
+                  position: 'bottom-center',
                 });
 
               }else {
-                button.html('Upload');
+                // button.html('Upload');
                 $.toast({
                   text: json.alert,
                   showHideTransition: 'slide',
                   icon: json.header_alert,
                   loaderBg: '#f96868',
-                  position: 'top-center',
+                  position: 'bottom-center',
                 });
               }
             }

@@ -14,7 +14,7 @@
 
       <div class="text-center">
         <p class="mt-5">Atau hubungi kami melalui email</p>
-        <b>info@jpkp.com</b>
+        <b><a href="mailto:mpampam5@gmail.com">info@jpkp.com</a></b>
       </div>
 
 

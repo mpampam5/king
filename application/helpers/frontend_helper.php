@@ -7,6 +7,12 @@ function setting_system($field)
   return $qry->row()->$field;
 }
 
+function sess($str)
+{
+   $ci=& get_instance();
+  return $ci->session->userdata($str);
+}
+
 function profile($field)
 {
   $ci  =& get_instance();
