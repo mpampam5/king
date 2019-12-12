@@ -6,7 +6,7 @@ class Account extends MY_Controller{
   public function __construct()
   {
     parent::__construct();
-    //Codeigniter : Write Less Do More
+    $this->load->model("Account_model","model");
   }
 
   function index()
@@ -19,8 +19,8 @@ class Account extends MY_Controller{
   {
       if ($this->input->is_ajax_request()) {
           $json = array('success' =>false , "alert"=> array(), "file_name"=>array());
-          $image = "foto_".enc_uri(1).".".pathinfo($_FILES['foto_personal']['name'], PATHINFO_EXTENSION);
-
+          $image = "foto_".enc_uri(date("dmyhis")).".".pathinfo($_FILES['foto_personal']['name'], PATHINFO_EXTENSION);
+          $cek_foto = profile("foto");
           $config['upload_path'] = "./_template/profiles/";
           $config['allowed_types'] = 'jpg|jpeg';
           $config['overwrite'] = true;
@@ -46,8 +46,16 @@ class Account extends MY_Controller{
            // resize image
            $this->image_lib->resize();
 
-              // $where = array('id_person' => sess("id_person"));
-              // $this->model->get_update("tb_person",["file_foto"=>$image],$where);
+              $where = array('id_person' => sess("id_person"));
+              $this->model->get_update("tb_person",["foto"=>$image],$where);
+
+              if ($cek_foto!="") {
+                if (file_exists("./_template/profiles/$cek_foto")) {
+                    unlink("./_template/profiles/$cek_foto");
+                    unlink("./_template/profiles/thumbs/$cek_foto");
+                }
+              }
+
               $json['header_alert'] = "success";
               $json['file_name'] = $image;
               $json['alert'] = "File upload successfully.";

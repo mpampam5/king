@@ -190,14 +190,14 @@
 				                        </a>
 				                        <ul class="nav nav-children">
 				                            <li>
-				                                <a class="nav-link" href="extra-changelog.html">
-																					<span class="float-right badge badge-primary">182</span>
+				                                <a class="nav-link" href="<?=site_url("backend/relawan_menunggu_verifikasi")?>">
+																					<span class="float-right badge badge-primary"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"0","is_delete"=>"0"])->num_rows()?></span>
 				                                    Menunggu Verifikasi
 				                                </a>
 				                            </li>
 				                            <li>
 				                                <a class="nav-link" href="extra-ajax-made-easy.html">
-																					<span class="float-right badge badge-primary">182</span>
+																					<span class="float-right badge badge-primary"><?=$this->db->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0"])->num_rows();?></span>
 				                                    Terverifikasi
 				                                </a>
 				                            </li>

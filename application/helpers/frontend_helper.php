@@ -32,6 +32,7 @@ function profile($field)
                           tb_person.id_kabupaten,
                           tb_person.id_kecamatan,
                           tb_person.id_kelurahan,
+                          tb_person.foto,
                           tb_person.`password`,
                           tb_person.token,
                           tb_person.is_verifikasi,

@@ -2,7 +2,7 @@
   <div class="mt-3 text-center main-menus">
     <div class="rounded-menu">
       <a href="<?=site_url("frontend/aturan")?>">
-        <span class="badge badge-outline-danger">S & K</span>
+        <span class="badge badge-outline-danger">S K</span>
         <p class="text-center">Aturan & Persyaratan</p>
       </a>
     </div>

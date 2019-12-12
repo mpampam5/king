@@ -36,3 +36,17 @@ if (! function_exists("logs")) {
       $ci->db->insert("logs",$data);
     }
 }
+
+function tampilkan_wilayah($table,$where)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where($table,$where);
+  return $query->name;
+}
+
+function struktur_pengurus($id)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where("struktur_pengurus",["id_kepengurusan"=>$id]);
+  return $query->struktur_pengurus;
+}

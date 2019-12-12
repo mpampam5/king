@@ -66,7 +66,7 @@ class Register extends CI_Controller{
                       );
 
         $this->db->insert("tb_person",$data);
-        $this->session->set_flashdata("reg_success",'<p style="font-weight:bold;" class="text-center mb-3">Register Berhasil! Silahkan Login.</p>');
+        $this->session->set_flashdata("reg_success",'<p style="font-weight:bold;" class="text-center text-success mb-3">Register Berhasil! Silahkan Login.</p>');
         $json['alert'] = "add data successfully";
         $json['success'] =  true;
       }else {
@@ -84,7 +84,7 @@ class Register extends CI_Controller{
 
   function _cek_nik($str)
   {
-    $where =  array("nik"=>$str);
+    $where =  array("nik"=>$str,"is_delete"=>"0");
         if ($this->db->get_where("tb_person",$where)->row()) {
           $this->form_validation->set_message('_cek_nik', '*&nbsp;sudah terdaftar');
           return false;
@@ -96,7 +96,7 @@ class Register extends CI_Controller{
 
   function _cek_email($str)
   {
-    $where =  array("email"=>$str);
+    $where =  array("email"=>$str,"is_delete"=>"0");
         if ($this->db->get_where("tb_person",$where)->row()) {
           $this->form_validation->set_message('_cek_email', '*&nbsp;sudah terdaftar');
           return false;

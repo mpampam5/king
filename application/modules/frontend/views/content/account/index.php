@@ -2,7 +2,11 @@
   <div class="account">
     <div class="cover-account">
       <div class="overlay">
-          <div class="img-profile" style="background-image:url('<?=base_url()?>/_template/frontend/images/faces/face13.jpg')">
+        <?php if (profile("foto")==""): ?>
+          <div class="img-profile" id="imgprofile" style="background-image:url('<?=base_url()?>_template/avatar_default.jpg')">
+            <?php else: ?>
+          <div class="img-profile" id="imgprofile" style="background-image:url('<?=base_url()?>_template/profiles/thumbs/<?=profile('foto')?>')">
+        <?php endif; ?>
             <input type="file" name="foto_personal" id="upload-foto" class="file-upload-default" accept="image/JPEG,image/PNG" style="display:none">
             <a href="#" id="btn-upload-foto"><i class="fas fa-camera"></i></a>
           </div>
@@ -33,7 +37,7 @@
 
          <a href="#" class="btn btn-primary btn-md"><i class="ti-download"></i> DOWNLOAD ID CARD</a>
         <?php else: ?>
-        <label class="badge badge-warning" style="font-size:16px;color:#fff;font-weight:bold">BELUM TERVERIFIKASI</label>
+        <label class="badge badge-warning mt-4" style="font-size:14px;color:#fff;font-weight:bold">BELUM TERVERIFIKASI</label>
       <?php endif; ?>
     </div>
 
@@ -62,7 +66,7 @@ $(function () {
         form_data.append('foto_personal', file_data);
 
         $.ajax({
-            url: '<?=site_url("frontend/account/do_upload")?>',
+            url: '<?=base_url("frontend/account/do_upload/")?>',
             dataType: 'json',
             cache: false,
             contentType: false,
@@ -79,6 +83,9 @@ $(function () {
                   loaderBg: '#f96868',
                   position: 'bottom-center',
                 });
+
+                var imageUrl = "<?=base_url()?>_template/profiles/thumbs/"+json.file_name;
+                $("#imgprofile").css("background-image", "url(" + imageUrl + ")");
 
               }else {
                 // button.html('Upload');

@@ -51,15 +51,14 @@
 
 $(document).ready(function(){
   var table = $('#table').dataTable({
-    dom: '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p',
-		processing: true,
-    'language':{
-       "loadingRecords": "&nbsp;",
-       "processing": "Loading..."
-    },
-    "serverSide": true,
-    "searching":false,
-    "order": [[ 1, 'desc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
+		"processing": true, //Feature control the processing indicator.
+		"serverSide": true, //Feature control DataTables' server-side processing mode.
+		"order": [[ 1, 'desc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
+		"lengthChange": false,
+		"searching": false,
+		oLanguage: {
+				sProcessing: '<div class="spinner-border spinner-border-sm text-white"></div> Loading'
+		},
     "ajax":
     {
       "url": "<?php echo site_url('backend/jadwal_acara/json') ?>", // URL file untuk proses select datanya

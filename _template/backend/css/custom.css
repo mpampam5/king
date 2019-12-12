@@ -37,3 +37,16 @@
   /* border: none!important; */
   background-color: #fdfdfd!important;
 }
+
+.foto-profile{
+  background-color: red;
+  width: 100%;
+  min-height: 200px;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.table-profile tr th,td{
+  padding: 5px;
+}

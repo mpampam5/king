@@ -36,7 +36,7 @@
 													<div class="summary">
 														<h4 class="title">Relawan Terverifikasi</h4>
 														<div class="info">
-															<strong class="amount">38</strong>
+															<strong class="amount"><?=$terverifikasi?></strong>
 														</div>
 													</div>
 													<div class="summary-footer">
@@ -62,7 +62,7 @@
 													<div class="summary">
 														<h4 class="title">Relawan Menunggu Verifikasi</h4>
 														<div class="info">
-															<strong class="amount">3765</strong>
+															<strong class="amount"><?=$belum_terverifikasi?></strong>
 														</div>
 													</div>
 													<div class="summary-footer">

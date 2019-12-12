@@ -50,12 +50,10 @@
 
 $(document).ready(function(){
   var table = $('#table').dataTable({
-    dom: '<"row"<"col-lg-6"l><"col-lg-6"f>><"table-responsive"t>p',
 		processing: true,
-    'language':{
-       "loadingRecords": "&nbsp;",
-       "processing": "Loading..."
-    },
+		oLanguage: {
+				sProcessing: '<div class="spinner-border spinner-border-sm text-white"></div> Loading'
+		},
     "serverSide": true,
     "searching":false,
     "order": [[ 0, 'asc' ]], // Default sortingnya berdasarkan kolom / field ke 0 (paling pertama)
