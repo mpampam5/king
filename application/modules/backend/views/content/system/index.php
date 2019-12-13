@@ -9,6 +9,7 @@
 						</a>
 					</li>
 					<li><span>Pengaturan System</span></li>
+					<li><span>Pengaturan System</span></li>
 				</ol>
         <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
 				</div>
@@ -20,7 +21,7 @@
         <div class="col-md-10 mx-auto">
           <section class="card">
             <div class="card-body">
-              <a href="#" class="edit-system btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
+              <a href="<?=site_url("backend/System_setting/edit_system")?>" class="edit-system btn btn-info btn-sm"><i class="fas fa-pencil-alt"></i></a>
               <table class="table-setting">
                 <tr>
                   <th>Title System</th>
@@ -29,7 +30,7 @@
 
                 <tr>
                   <th>Telepon/ Whatsapp</th>
-                  <td>: <?=setting_system("telepon")?></td>
+                  <td>: +62<?=setting_system("telepon")?></td>
                 </tr>
 
                 <tr>
@@ -57,7 +58,7 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-4">
-                  <a href="#" class="btn btn-md btn-primary btn-block"><i class="fas fa-file-alt"></i> Ubah Text Dashboard</a>
+                  <a href="<?=site_url("backend/system_setting/text_dashboard")?>" class="btn btn-md btn-primary btn-block"><i class="fas fa-file-alt"></i> Ubah Text Dashboard</a>
                 </div>
 
                 <div class="col-sm-4">
@@ -65,7 +66,7 @@
                 </div>
 
                 <div class="col-sm-4">
-                  <a href="#" class="btn btn-md btn-danger btn-block"><i class="fas fa-upload"></i> Upload AD/ART</a>
+                  <a href="<?=site_url("backend/system_setting/upload_berkas")?>" class="btn btn-md btn-danger btn-block"><i class="fas fa-upload"></i> Upload AD/ART</a>
                 </div>
 
               </div>
