@@ -42,6 +42,10 @@
 							<h4 class="card-title text-center"> Data Relawan </h4>
 							<hr>
               <table class="table-profile">
+								<tr>
+									<th>Nomor SK</th>
+									<td>: <span style="font-weight:bold;" class="text-primary"><?=$row->no_sk?></span></td>
+								</tr>
                 <tr>
                   <th>Stuktur Kepengurusan</th>
                   <td>: <span style="font-weight:bold;" class="text-danger"><?=strtoupper(struktur_pengurus($row->id_kepengurusan))?></span></td>
@@ -124,8 +128,9 @@
 
           <div class="mt-3">
             <a href="<?=site_url('backend/'.$this->uri->segment(2))?>" class="btn btn-default btn-sm">kembali</a>
+						<a href="<?=site_url("backend/relawan_terverifikasi/get_id_card/".enc_uri($row->id_person))?>" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-id-card"></i> Id Card</a>
+						<a href="<?=site_url("backend/relawan_terverifikasi/edit/".enc_uri($row->id_person))?>" id="edit" class="btn btn-warning btn-sm"><i class="fas fa-trash"></i> Edit Data Relawan</a>
             <a href="<?=site_url("backend/relawan_terverifikasi/delete/".enc_uri($row->id_person))?>" id="delete" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus Relawan</a>
-            <button type="button" class="btn btn-primary btn-sm" id="verif-content" name="button"><i class="fas fa-download"></i> Download Id Card</button>
           </div>
 
 

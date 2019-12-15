@@ -481,3 +481,51 @@ box-shadow: 2px -2px 5px -3px rgba(0,0,0,0.75);
  transition-duration: 0.3s;
  transition-timing-function: ease-out;
 }
+
+
+.main-ppob{
+
+}
+
+.ppob-content{
+    padding: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.ppob-menu{
+  width: 25%;
+  position: relative;
+  margin: 15px;
+  display: inline-block;
+  text-align: center!important;
+}
+
+.ppob-menu a{
+  text-decoration: none;
+  text-align: center;
+}
+
+.ppob-menu a span{
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  border-radius: 4px;
+  padding: 25px;
+  background-color: #fff;
+}
+
+.ppob-menu a span  img{
+  width: 40px;
+  height: 40px;
+}
+
+.ppob-menu a p{
+  /* padding: 4px 4px 0 4px; */
+  padding-top: 5px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #e20e0e;
+  font-weight: bold;
+  text-align: center!important;
+}

@@ -65,7 +65,7 @@
 				<!-- start: search & user box -->
 				<div class="header-right">
 
-					<span class="separator"></span>
+					<!-- <span class="separator"></span>
 
 					<ul class="notifications">
 						<li>
@@ -119,7 +119,7 @@
 								</div>
 							</div>
 						</li>
-					</ul>
+					</ul> -->
 
 					<span class="separator"></span>
 
@@ -143,7 +143,7 @@
 									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fas fa-user"></i> My Profile</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fas fa-lock"></i> Lock Screen</a>
+									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fas fa-lock"></i> Reset Password</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="<?=site_url("signout")?>"><i class="fas fa-power-off"></i> Logout</a>

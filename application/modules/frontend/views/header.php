@@ -57,42 +57,42 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a class="dropdown-item preview-item">
+              <a  href="<?=site_url("frontend/jadwal_acara")?>" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-success">
-                    <i class="ti-info-alt mx-0"></i>
+                    <i class="fas fa-calendar-alt mx-0"></i>
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                  <h6 class="preview-subject font-weight-normal">Jadwal Acara</h6>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now
+                    Terdapat 1 pembaharuan
                   </p>
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
+              <a href="<?=site_url("frontend/kegiatan")?>" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-warning">
-                    <i class="ti-settings mx-0"></i>
+                    <i class="fas fa-clipboard-list mx-0"></i>
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Settings</h6>
+                  <h6 class="preview-subject font-weight-normal">Kegiatan</h6>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    Private message
+                    Terdapat 1 pembaharuan
                   </p>
                 </div>
               </a>
-              <a class="dropdown-item preview-item">
+              <a href="<?=site_url("frontend/bantuan")?>" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
+                    <i class="fas fa-hands-helping mx-0"></i>
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                  <h6 class="preview-subject font-weight-normal">Bantuan Khusus</h6>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
+                    Terdapat 1 pembaharuan
                   </p>
                 </div>
               </a>

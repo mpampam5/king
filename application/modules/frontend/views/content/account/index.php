@@ -35,7 +35,7 @@
           <span class="badge badge-danger badge-pill w-100"> <?=tampilkan_wilayah("wil_provinsi",["id"=>profile("wilayah_keanggotaan")])?></span>
         </div>
 
-         <a href="#" class="btn btn-primary btn-md"><i class="ti-download"></i> DOWNLOAD ID CARD</a>
+         <a href="<?=site_url("frontend/id_card/get/".enc_uri(sess("id_person")))?>" target="_blank" class="btn btn-primary btn-md"><i class="ti-download"></i> DOWNLOAD ID CARD</a>
         <?php else: ?>
         <label class="badge badge-warning mt-4" style="font-size:14px;color:#fff;font-weight:bold">BELUM TERVERIFIKASI</label>
       <?php endif; ?>

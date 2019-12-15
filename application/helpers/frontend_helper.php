@@ -13,6 +13,21 @@ function sess($str)
   return $ci->session->userdata($str);
 }
 
+function struktur_pengurus_title($id)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where("struktur_pengurus",["id_kepengurusan"=>$id]);
+  return $query->title;
+}
+
+function status_jabatan($id)
+{
+  $ci=get_instance();
+  $query = $ci->model->get_where("status_jabatan",["id"=>$id]);
+  return $query->jabatan;
+}
+
+
 function profile($field)
 {
   $ci  =& get_instance();

@@ -49,7 +49,7 @@ class Relawan_terverifikasi extends MY_Controller{
 
 
           $row[] = '<a href="'.site_url("backend/relawan_terverifikasi/detail/".enc_uri($rows->id_person)).'" class="btn btn-sm btn-success mb-1" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="DETAIL"><i class="fas fa-search-plus"></i></a><br>
-                    <a href="'.site_url("backend/relawan_terverifikasi/detail/".enc_uri($rows->id_person)).'" class="btn btn-sm btn-warning mb-1" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="EDIT"><i class="fas fa-pen-square"></i></a><br>
+                    <a href="'.site_url("backend/relawan_terverifikasi/edit/".enc_uri($rows->id_person)).'" class="btn btn-sm btn-warning mb-1" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="EDIT"><i class="fas fa-pen-square"></i></a><br>
                     <a href="'.site_url("backend/relawan_terverifikasi/delete/".enc_uri($rows->id_person)).'" id="delete" class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="DELETE"><i class="fas fa-trash"></i></a><br>
                     ';
 
@@ -66,6 +66,118 @@ class Relawan_terverifikasi extends MY_Controller{
       echo json_encode($output);
     }
   }
+
+  function edit($id)
+  {
+    if ($id!="") {
+      if ($row = $this->model->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0","id_person"=>dec_uri($id)])) {
+        $this->template->set_title("Relawan Terdaftar");
+        $data['row'] = $row;
+        $this->template->view("content/relawan_terverifikasi/form",$data);
+      }
+    }
+  }
+
+  function edit_action($id="")
+  {
+    if ($id!="") {
+      if ($this->input->is_ajax_request()) {
+        $json = array('success'=>false, 'alert'=>array());
+        $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|required|callback__cek_no_sk[".$this->input->post("no_sk_lama",true)."]");
+        $this->form_validation->set_rules("struktur_pengurus","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("status_jabatan","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("wilayah_keanggotaan","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("nama","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
+        $this->form_validation->set_rules("nik","*&nbsp;","trim|xss_clean|numeric|required|min_length[16]|max_length[16]|callback__cek_nik[".$this->input->post("nik_lama",true)."]");
+        $this->form_validation->set_rules("tempat_lahir","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
+        $this->form_validation->set_rules("tanggal_lahir","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
+        $this->form_validation->set_rules("jenis_kelamin","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
+        $this->form_validation->set_rules("alamat","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
+        $this->form_validation->set_rules("provinsi","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("kabupaten","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("kecamatan","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("kelurahan","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("telepon","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("email","*&nbsp;","trim|xss_clean|valid_email|required|callback__cek_email[".$this->input->post("email_lama",true)."]");
+        $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
+
+
+        if ($this->form_validation->run()) {
+
+          $data = array('no_sk'=> $this->input->post("no_sk",true),
+                        'id_jabatan' => $this->input->post("status_jabatan",true),
+                        'wilayah_keanggotaan' => $this->input->post("wilayah_keanggotaan",true),
+                        'id_kepengurusan' => $this->input->post("struktur_pengurus",true),
+                        'nik' => $this->input->post("nik",true),
+                        'nama' => $this->input->post("nama",true),
+                        'tempat_lahir' => $this->input->post("tempat_lahir",true),
+                        'tanggal_lahir' => date("Y-m-d",strtotime($this->input->post("tanggal_lahir",true))),
+                        'jenis_kelamin' => $this->input->post("jenis_kelamin",true),
+                        'telepon' => $this->input->post("telepon",true),
+                        'alamat' => $this->input->post("alamat",true),
+                        'email' => $this->input->post("email",true),
+                        'id_provinsi' => $this->input->post("provinsi",true),
+                        'id_kabupaten' => $this->input->post("kabupaten",true),
+                        'id_kecamatan' => $this->input->post("kecamatan",true),
+                        'id_kelurahan' => $this->input->post("kelurahan",true),
+                        'created' => date("Y-m-d H:i:s"),
+                        );
+
+          $this->model->get_update("tb_person",$data,["id_person"=>dec_uri($id)]);
+
+          $ket_logs = array_merge(["id_person"=>dec_uri($id)],$data);
+          logs("relawan_terverifikasi","update",json_encode($ket_logs));
+
+          $json['alert'] = "update data successfully";
+          $json['success'] =  true;
+        }else {
+          foreach ($_POST as $key => $value)
+            {
+              $json['alert'][$key] = form_error($key);
+            }
+        }
+
+        echo json_encode($json);
+
+      }
+    }
+  }
+
+  function _cek_no_sk($str,$no_sk_lama)
+  {
+    $where =  array("no_sk !="=>$no_sk_lama,"no_sk"=>$str,"is_delete"=>"0");
+        if ($this->model->get_where("tb_person",$where)) {
+          $this->form_validation->set_message('_cek_no_sk', '*&nbsp;sudah terdaftar');
+          return false;
+        } else {
+          return true;
+        }
+  }
+
+
+    function _cek_nik($str,$nik_lama)
+    {
+      $where =  array("nik !="=>$nik_lama,"nik"=>$str,"is_delete"=>"0");
+          if ($this->model->get_where("tb_person",$where)) {
+            $this->form_validation->set_message('_cek_nik', '*&nbsp;sudah terdaftar');
+            return false;
+          } else {
+            return true;
+          }
+    }
+
+
+    function _cek_email($str,$email_lama)
+    {
+      $where =  array("email !="=>$email_lama,"email"=>$str,"is_delete"=>"0");
+          if ($this->model->get_where("tb_person",$where)) {
+            $this->form_validation->set_message('_cek_email', '*&nbsp;sudah terdaftar');
+            return false;
+          } else {
+            return true;
+          }
+    }
+
 
 
   function detail($id="")
@@ -121,27 +233,7 @@ class Relawan_terverifikasi extends MY_Controller{
     }
   }
 
-    function _cek_no_id($str)
-    {
-      $where =  array("kd_person"=>$str,"is_delete"=>"0","is_verifikasi"=>"1");
-          if ($this->db->get_where("tb_person",$where)->row()) {
-            $this->form_validation->set_message('_cek_no_id', '*&nbsp;sudah ada');
-            return false;
-          } else {
-            return true;
-          }
-    }
 
-    function _cek_sk($str)
-    {
-      $where =  array("no_sk"=>$str,"is_delete"=>"0","is_verifikasi"=>"1");
-          if ($this->db->get_where("tb_person",$where)->row()) {
-            $this->form_validation->set_message('_cek_sk', '*&nbsp;sudah ada');
-            return false;
-          } else {
-            return true;
-          }
-    }
 
     function delete($id)
     {
@@ -162,6 +254,60 @@ class Relawan_terverifikasi extends MY_Controller{
         echo json_encode($json);
       }
     }
+
+
+
+
+
+
+
+
+      function kabupaten(){
+            $propinsiID = $_GET['id'];
+            $kabupaten   = $this->db->get_where('wil_kabupaten',array('province_id'=>$propinsiID));
+            echo '<option value="">-- Pilih Kabupaten/Kota --</option>';
+            foreach ($kabupaten->result() as $k)
+            {
+                echo "<option value='$k->id'>$k->name</option>";
+            }
+        }
+
+
+        function kecamatan(){
+           $kabupatenID = $_GET['id'];
+           $kecamatan   = $this->db->get_where('wil_kecamatan',array('regency_id'=>$kabupatenID));
+           echo '<option value="">-- Pilih Kecamatan --</option>';
+           foreach ($kecamatan->result() as $k)
+           {
+               echo "<option value='$k->id'>$k->name</option>";
+           }
+       }
+
+       function kelurahan(){
+            $kecamatanID  = $_GET['id'];
+            $desa         = $this->db->get_where('wil_kelurahan',array('district_id'=>$kecamatanID));
+            echo '<option value="">-- Pilih Kelurahan/Desa --</option>';
+            foreach ($desa->result() as $d)
+            {
+                echo "<option value='$d->id'>$d->name</option>";
+            }
+        }
+
+
+  function get_id_card($id="")
+    {
+      if ($id!="") {
+        if ($row = $this->model->get_where("tb_person",["is_verifikasi"=>"1","is_delete"=>"0","id_person"=>dec_uri($id)])) {
+          $this->load->library('Pdfgenerator');
+          $data["row"] = $row;
+          $html = $this->load->view('content/relawan_terverifikasi/id_card',$data,true);
+          // $this->load->view('content/relawan_terverifikasi/id_card',$data);
+          $filename = 'ID_CARD_'.time();
+          $this->pdfgenerator->generate($html, $filename, true, 'A4', 'portrait');
+        }
+      }
+    }
+
 
 
 }
