@@ -140,10 +140,10 @@
 							<ul class="list-unstyled mb-2">
 								<li class="divider"></li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fas fa-user"></i> My Profile</a>
+									<a role="menuitem" tabindex="-1" href="<?=site_url("backend/profile")?>"><i class="fas fa-user"></i> My Profile</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fas fa-lock"></i> Reset Password</a>
+									<a role="menuitem" tabindex="-1" href="<?=site_url("backend/profile/reset_password")?>"><i class="fas fa-lock"></i> Reset Password</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="<?=site_url("signout")?>"><i class="fas fa-power-off"></i> Logout</a>
@@ -244,19 +244,25 @@
 				                        </a>
 				                    </li>
 
+
+														<?php if (profile_admin("level")=="superadmin"): ?>
 														<li>
 				                        <a class="nav-link" href="<?=site_url("backend/administrator")?>">
 				                            <i class="fas fa-user-cog" aria-hidden="true"></i>
 				                            <span>Administrator</span>
 				                        </a>
 				                    </li>
+														<?php endif; ?>
 
+
+														<?php if (profile_admin("level")=="superadmin"): ?>
 														<li>
 				                        <a class="nav-link" href="<?=site_url("backend/system_setting")?>">
 				                            <i class="fas fa-cogs" aria-hidden="true"></i>
 				                            <span>Pengaturan System</span>
 				                        </a>
 				                    </li>
+													<?php endif; ?>
 
 														<!-- <li>
 				                        <a class="nav-link" href="<?=site_url("")?>">

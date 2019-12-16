@@ -21,7 +21,7 @@
 					<li><span>Pengaturan System</span></li>
 					<li><span>Upload AD/ART</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

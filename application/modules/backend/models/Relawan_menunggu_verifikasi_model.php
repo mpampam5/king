@@ -111,4 +111,59 @@ class Relawan_menunggu_verifikasi_model extends MY_Model{
     }
 
 
+    function export()
+    {
+      $this->db->select("tb_person.id_person,
+                      tb_person.id_kepengurusan,
+                      tb_person.kd_person,
+                      tb_person.no_sk,
+                      tb_person.nik,
+                      tb_person.nama,
+                      tb_person.tempat_lahir,
+                      tb_person.tanggal_lahir,
+                      tb_person.jenis_kelamin,
+                      tb_person.telepon,
+                      tb_person.email,
+                      tb_person.alamat,
+                      tb_person.id_provinsi,
+                      tb_person.id_kabupaten,
+                      tb_person.id_kecamatan,
+                      tb_person.id_kelurahan,
+                      tb_person.foto,
+                      tb_person.wilayah_keanggotaan,
+                      tb_person.is_verifikasi,
+                      tb_person.is_delete,
+                      tb_person.created,
+                      tb_person.modified,
+                      struktur_pengurus.struktur_pengurus");
+      $this->db->from("tb_person");
+      $this->db->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan");
+      $this->db->where("tb_person.is_verifikasi","0");
+      $this->db->where("tb_person.is_delete","0");
+
+
+        if($this->input->post('nik'))
+        {
+            $this->db->like('tb_person.nik', $this->input->post('nik'));
+        }
+        if($this->input->post('nama'))
+        {
+            $this->db->like('tb_person.nama', $this->input->post('nama'));
+        }
+        if($this->input->post('email'))
+        {
+            $this->db->like('tb_person.email', $this->input->post('email'));
+        }
+
+        if($this->input->post('struktur_pengurus'))
+        {
+            $this->db->like('tb_person.id_kepengurusan', $this->input->post('struktur_pengurus'));
+        }
+
+
+
+        return $this->db->get();
+    }
+
+
 }

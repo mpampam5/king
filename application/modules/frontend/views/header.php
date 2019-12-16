@@ -65,9 +65,11 @@
                 </div>
                 <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-normal">Jadwal Acara</h6>
+                  <?php if (rows_table("jadwal_acara") > 0): ?>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat 1 pembaharuan
+                    Terdapat <?=rows_table("jadwal_acara")?> pembaharuan
                   </p>
+                <?php endif; ?>
                 </div>
               </a>
               <a href="<?=site_url("frontend/kegiatan")?>" class="dropdown-item preview-item">
@@ -78,9 +80,11 @@
                 </div>
                 <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-normal">Kegiatan</h6>
+                  <?php if (rows_table("kegiatan") > 0): ?>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat 1 pembaharuan
+                    Terdapat <?=rows_table("kegiatan")?> pembaharuan
                   </p>
+                <?php endif; ?>
                 </div>
               </a>
               <a href="<?=site_url("frontend/bantuan")?>" class="dropdown-item preview-item">
@@ -91,9 +95,11 @@
                 </div>
                 <div class="preview-item-content">
                   <h6 class="preview-subject font-weight-normal">Bantuan Khusus</h6>
+                  <?php if (rows_table("bantuan_khusus") > 0): ?>
                   <p class="font-weight-light small-text mb-0 text-muted">
-                    Terdapat 1 pembaharuan
+                    Terdapat <?=rows_table("bantuan_khusus")?> pembaharuan
                   </p>
+                <?php endif; ?>
                 </div>
               </a>
             </div>

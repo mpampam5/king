@@ -128,4 +128,75 @@ class Relawan_terverifikasi_model extends MY_Model{
     }
 
 
+    function export()
+    {
+      $this->db->select("tb_person.id_person,
+                      tb_person.id_kepengurusan,
+                      tb_person.kd_person,
+                      tb_person.no_sk,
+                      tb_person.nik,
+                      tb_person.nama,
+                      tb_person.tempat_lahir,
+                      tb_person.tanggal_lahir,
+                      tb_person.jenis_kelamin,
+                      tb_person.telepon,
+                      tb_person.email,
+                      tb_person.alamat,
+                      tb_person.id_provinsi,
+                      tb_person.id_kabupaten,
+                      tb_person.id_kecamatan,
+                      tb_person.id_kelurahan,
+                      tb_person.foto,
+                      tb_person.id_jabatan,
+                      tb_person.wilayah_keanggotaan,
+                      tb_person.is_verifikasi,
+                      tb_person.is_delete,
+                      tb_person.created,
+                      tb_person.modified,
+                      struktur_pengurus.struktur_pengurus,
+                      status_jabatan.jabatan");
+      $this->db->from("tb_person");
+      $this->db->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan");
+      $this->db->join("status_jabatan","status_jabatan.id = tb_person.id_jabatan");
+      $this->db->where("tb_person.is_verifikasi","1");
+      $this->db->where("tb_person.is_delete","0");
+
+        if($this->input->post('no_sk'))
+        {
+            $this->db->like('tb_person.no_sk', $this->input->post('no_sk'));
+        }
+        if($this->input->post('nik'))
+        {
+            $this->db->like('tb_person.nik', $this->input->post('nik'));
+        }
+        if($this->input->post('nama'))
+        {
+            $this->db->like('tb_person.nama', $this->input->post('nama'));
+        }
+        if($this->input->post('email'))
+        {
+            $this->db->like('tb_person.email', $this->input->post('email'));
+        }
+        if($this->input->post('telepon'))
+        {
+            $this->db->like('tb_person.telepon', $this->input->post('telepon'));
+        }
+        if($this->input->post('struktur_pengurus'))
+        {
+            $this->db->like('tb_person.id_kepengurusan', $this->input->post('struktur_pengurus'));
+        }
+        if($this->input->post('wilayah_keanggotaan'))
+        {
+            $this->db->like('tb_person.wilayah_keanggotaan', $this->input->post('wilayah_keanggotaan'));
+        }
+        if($this->input->post('status_jabatan'))
+        {
+            $this->db->like('tb_person.id_jabatan', $this->input->post('status_jabatan'));
+        }
+
+
+        return $this->db->get();
+    }
+
+
 }

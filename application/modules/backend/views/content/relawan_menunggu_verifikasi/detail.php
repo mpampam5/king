@@ -12,7 +12,7 @@
           <li><span>Menunggu Verifikasi</span></li>
 					<li><span>Detail</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 
@@ -146,15 +146,11 @@
                     </select>
                   </div>
 
+
                   <div class="form-group">
                     <label for="">Wilayah Keanggotaan</label>
-                    <select class="form-control" name="wilayah_keanggotaan" id="wilayah_keanggotaan">
-                      <option value="">-- pilih --</option>
-                      <?php $wil_provinsi = $this->db->get("wil_provinsi"); ?>
-                      <?php foreach ($wil_provinsi->result() as $provinsi): ?>
-                        <option <?=$row->id_provinsi==$provinsi->id ? "selected":"" ?> value="<?=$provinsi->id?>"><?=$provinsi->name?></option>
-                      <?php endforeach; ?>
-                    </select>
+										<input type="text" class="form-control" readonly value="<?=tampilkan_wilayah("wil_provinsi",["id"=>$row->id_provinsi])?>">
+										<input type="hidden" class="form-control" name="wilayah_keanggotaan" id="wilayah_keanggotaan" value="<?=$row->id_provinsi?>">
                   </div>
 
                   <div class="form-group">

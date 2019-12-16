@@ -13,7 +13,7 @@
 					<li><span>Tentang JPKP</span></li>
 					<li><span>Form <?=ucfirst($button)?> <?=$title?></span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

@@ -17,7 +17,7 @@
 					<li><span>Slider Dashboard</span></li>
 					<li><span>List</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

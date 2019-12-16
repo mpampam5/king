@@ -16,4 +16,12 @@ class Aturan extends MY_Controller{
     $this->template->view("content/aturan/index",$data);
   }
 
+
+  function download_ad_art()
+  {
+    $this->load->helper('download');
+    $path = "./_template/docs/AD-ART-JPKP.pdf";
+    force_download($path, NULL);
+  }
+
 }

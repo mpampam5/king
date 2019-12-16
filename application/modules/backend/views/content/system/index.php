@@ -11,7 +11,7 @@
 					<li><span>Pengaturan System</span></li>
 					<li><span>Pengaturan System</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

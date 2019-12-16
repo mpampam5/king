@@ -31,7 +31,7 @@
 
 
   <div class="mt-3 pb-5 bg-white p-3 text-center aturan">
-    <h5 class="mb-4">Aturan & Persyaratan</h5>
+    <h5 class="mb-4">ADART</h5>
     <p style="font-size:12px;">SYARAT MENJADI PENGURUS</p>
     <ul>
       <?php foreach ($row as $aturan): ?>
@@ -39,10 +39,24 @@
       <?php endforeach; ?>
     </ul>
 
+
+    <?php
+      $path = "./_template/docs/AD-ART-JPKP.pdf";
+
+      if (!file_exists($path)) {
+        $docs = "";
+      }else {
+        $docs = $path;
+      }
+     ?>
+
+
+     <?php if ($docs!=""): ?>
     <div class="mt-4">
       <label style="font-size:10px;"><b>Klik untuk mendownload AD/ART JPK<span class="text-danger">P</span><b></label><br>
-      <a href="#" class="btn btn-md btn-danger">Download AD/ART</a>
+      <a href="<?=site_url("frontend/aturan/download_ad_art")?>" target="_blank" class="btn btn-md btn-danger">Download AD/ART</a>
     </div>
+    <?php endif; ?>
   </div>
 
 

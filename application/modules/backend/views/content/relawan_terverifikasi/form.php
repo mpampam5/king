@@ -12,7 +12,7 @@
           <li><span>Terverifikasi</span></li>
 					<li><span>Form Edit Data Relawan</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

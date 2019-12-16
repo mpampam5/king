@@ -30,7 +30,7 @@ function status_jabatan($id)
 
 function profile($field)
 {
-  $ci  =& get_instance();
+  $ci=& get_instance();
   $qry = $ci->db->select("tb_person.id_person,
                           tb_person.id_kepengurusan,
                           tb_person.kd_person,
@@ -48,8 +48,6 @@ function profile($field)
                           tb_person.id_kecamatan,
                           tb_person.id_kelurahan,
                           tb_person.foto,
-                          tb_person.`password`,
-                          tb_person.token,
                           tb_person.is_verifikasi,
                           tb_person.is_delete,
                           tb_person.created,
@@ -59,8 +57,8 @@ function profile($field)
                           status_jabatan.jabatan,
                           struktur_pengurus.struktur_pengurus")
                   ->from("tb_person")
-                  ->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan")
-                  ->join("status_jabatan","status_jabatan.id = tb_person.id_jabatan")
+                  ->join("struktur_pengurus","struktur_pengurus.id_kepengurusan = tb_person.id_kepengurusan","left")
+                  ->join("status_jabatan","status_jabatan.id = tb_person.id_jabatan","left")
                   ->where("is_delete","0")
                   ->where("id_person",$ci->session->userdata("id_person"))
                   ->get();
@@ -73,4 +71,14 @@ function tampilkan_wilayah($table,$where)
   $ci=get_instance();
   $query = $ci->model->get_where($table,$where);
   return $query->name;
+}
+
+
+function rows_table($table)
+{
+  $date = date("Y-m-d");
+  $ci=get_instance();
+  return $ci->db->like("created",$date)
+                ->get("$table")
+                ->num_rows();
 }

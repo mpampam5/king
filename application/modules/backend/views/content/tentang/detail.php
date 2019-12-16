@@ -11,7 +11,7 @@
 					<li><span>Tentang JPKP</span></li>
 					<li><span>Detail <?=$title?></span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 

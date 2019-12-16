@@ -19,8 +19,6 @@
     </div>
   </div>
 <?php endforeach; ?>
-
-
 </div>
 
 <div class="content-text p-3 mt-1 bg-white">
@@ -54,7 +52,7 @@
     <span class="text-danger"><i style="font-size:50px;" class="ti-map-alt"></i></span>
   </div>
 
-  <p style="font-size:12px;">
+  <p style="font-size:14px;">
     <?=setting_system("alamat")?>
   </p>
 </div>

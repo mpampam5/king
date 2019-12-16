@@ -31,7 +31,7 @@ class Kegiatan extends MY_Controller{
                     '.$row->keterangan.'
                   </p>
                   <p class="links text-center">
-                    <a href="'.$row->link_terkait.'">'.$row->link_terkait.'</a>
+                    <a href="'.$row->link_terkait.'" target="_blank">'.$row->link_terkait.'</a>
                   </p>
               </div>';
      }

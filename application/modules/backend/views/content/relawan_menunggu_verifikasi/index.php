@@ -17,7 +17,7 @@
           <li><span>Menunggu Verifikasi</span></li>
 					<li><span>List</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 
@@ -25,7 +25,7 @@
 
       <div class="row">
           <div class="col-md-12">
-            <button type="button" id="search" class="btn btn-sm btn-success mb-2"><i class="fas fa-search"></i> Search</button>
+            <button type="button" id="search" class="btn btn-sm btn-success mb-2"><i class="fas fa-search"></i> Search & Export Excel</button>
             <button type="button" id="reload_table" class="btn btn-sm btn-warning mb-2" name="button"><i class="fas fa-sync"></i> Reload</button>
           </div>
 
@@ -33,28 +33,28 @@
             <div class="stretch-card mb-1">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title text-center"> Search Filter </h5>
+                  <h5 class="card-title text-center"> Search & Export Excel </h5>
                   <hr>
-                    <form id="form-filter" autocomplete="off">
+                    <form id="form-filter" action="<?php echo site_url("backend/relawan_menunggu_verifikasi/export")?>" autocomplete="off" method="post">
                         <div class="row">
                           <div class="col-sm-3">
                             <div class="form-group">
                               <label for="">NIK</label>
-                              <input type="text" class="form-control form-control-sm" id="nik">
+                              <input type="text" class="form-control form-control-sm" id="nik" name="nik">
                             </div>
                           </div>
 
                           <div class="col-sm-3">
                             <div class="form-group">
                               <label for="">Nama</label>
-                              <input type="text" class="form-control form-control-sm" id="nama">
+                              <input type="text" class="form-control form-control-sm" id="nama" name="nama">
                             </div>
                           </div>
 
                           <div class="col-sm-3">
                             <div class="form-group">
                               <label for="">Email</label>
-                              <input type="text" class="form-control form-control-sm" id="email">
+                              <input type="text" class="form-control form-control-sm" id="email" name="email">
                             </div>
                           </div>
 
@@ -68,7 +68,7 @@
 													<div class="col-sm-3">
                             <div class="form-group">
                               <label for="">Struktur Kepengurusan</label>
-															<select class="form-control form-control-sm rupiah" id="struktur_pengurus">
+															<select class="form-control form-control-sm rupiah" id="struktur_pengurus" name="struktur_pengurus">
 																<option value="">-- pilih --</option>
 																<?php  $qrys = $this->db->get("struktur_pengurus"); ?>
 																<?php foreach ($qrys->result() as $qryss): ?>
@@ -81,6 +81,7 @@
 
                         <div class="col-sm-12 mt-2">
                           <button type="button" id="btn-filter" name="button" class="btn btn-sm btn-primary">Filter Search</button>
+													<button type="submit" id="btn-export" name="button" class="btn btn-sm btn-success">Export Excel</button>
                           <button type="button" id="hide_collapse" class="btn btn-danger btn-sm">Cancel</button>
                         </div>
 

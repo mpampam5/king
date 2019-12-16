@@ -17,7 +17,7 @@
           <li><span>Terverifikasi</span></li>
 					<li><span>List</span></li>
 				</ol>
-        <a class="sidebar-right-toggle" data-open="sidebar-right"></a>
+        <a class="sidebar-right-toggle"></a>
 				</div>
 			</header>
 
@@ -25,7 +25,7 @@
 
       <div class="row">
           <div class="col-md-12">
-            <button type="button" id="search" class="btn btn-sm btn-success mb-2"><i class="fas fa-search"></i> Search</button>
+            <button type="button" id="search" class="btn btn-sm btn-success mb-2"><i class="fas fa-search"></i> Search & Export Excel</button>
             <button type="button" id="reload_table" class="btn btn-sm btn-warning mb-2" name="button"><i class="fas fa-sync"></i> Reload</button>
           </div>
 
@@ -33,42 +33,42 @@
             <div class="stretch-card mb-1">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title text-center"> Search Filter </h5>
+                  <h5 class="card-title text-center"> Search & Export Excel </h5>
                   <hr>
-                    <form id="form-filter" autocomplete="off">
+                    <form id="form-filter" method="post" autocomplete="off" action="<?php echo site_url("backend/relawan_terverifikasi/export")?>">
                         <div class="row">
 													<div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">No.SK</label>
-                              <input type="text" class="form-control form-control-sm" id="no_sk">
+                              <input type="text" class="form-control form-control-sm" id="no_sk" name="no_sk">
                             </div>
                           </div>
 
                           <div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">NIK</label>
-                              <input type="text" class="form-control form-control-sm" id="nik">
+                              <input type="text" class="form-control form-control-sm" id="nik" name="nik">
                             </div>
                           </div>
 
                           <div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Nama</label>
-                              <input type="text" class="form-control form-control-sm" id="nama">
+                              <input type="text" class="form-control form-control-sm" id="nama" name="nama">
                             </div>
                           </div>
 
                           <div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Email</label>
-                              <input type="text" class="form-control form-control-sm" id="email">
+                              <input type="text" class="form-control form-control-sm" id="email" name="email">
                             </div>
                           </div>
 
 													<div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Telepon</label>
-                              <input type="text" class="form-control form-control-sm" id="telepon">
+                              <input type="text" class="form-control form-control-sm" id="telepon" name="telepon">
                             </div>
                           </div>
 
@@ -77,7 +77,7 @@
 													<div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Struktur Kepengurusan</label>
-															<select class="form-control form-control-sm rupiah" id="struktur_pengurus">
+															<select class="form-control form-control-sm rupiah" id="struktur_pengurus" name="struktur_pengurus">
 																<option value="">-- pilih --</option>
 																<?php  $qrys = $this->db->get("struktur_pengurus"); ?>
 																<?php foreach ($qrys->result() as $qryss): ?>
@@ -90,7 +90,7 @@
 													<div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Status Jabatan</label>
-															<select class="form-control form-control-sm rupiah" id="status_jabatan">
+															<select class="form-control form-control-sm rupiah" id="status_jabatan" name="status_jabatan">
 																<option value="">-- pilih --</option>
 																<?php  $qry_jabatan = $this->db->get("status_jabatan"); ?>
 																<?php foreach ($qry_jabatan->result() as $qry_jabatan): ?>
@@ -103,7 +103,7 @@
 													<div class="col-sm-3 mb-3">
                             <div class="form-group">
                               <label for="">Wilayah Keanggotaan</label>
-															<select class="form-control form-control-sm rupiah" id="wilayah_keanggotaan">
+															<select class="form-control form-control-sm rupiah" id="wilayah_keanggotaan" name="wilayah_keanggotaan">
 																<option value="">-- pilih --</option>
 																<?php  $qry_prov = $this->db->get("wil_provinsi"); ?>
 																<?php foreach ($qry_prov->result() as $qry_prov): ?>
@@ -116,8 +116,9 @@
 
                         <div class="col-sm-12 mt-2">
                           <button type="button" id="btn-filter" name="button" class="btn btn-sm btn-primary">Filter Search</button>
+													<button type="submit" id="btn-export" name="button" class="btn btn-sm btn-success">Export Excel</button>
                           <button type="button" id="hide_collapse" class="btn btn-danger btn-sm">Cancel</button>
-                        </div>
+												</div>
 
                       </div>
 
@@ -230,6 +231,23 @@ $(document).ready(function(){
 
 
 });
+
+// $('#btn-export').click(function(){ //button filter event click
+// 	$.ajax({
+// 			url: "<?php echo site_url("backend/relawan_terverifikasi/export")?>",
+// 			type: "POST",
+// 			data: {
+// 							no_sk : $('#no_sk').val(),
+// 							nik : $('#nik').val(),
+// 							nama : $('#nama').val(),
+// 							email : $('#email').val(),
+// 							telepon : $('#telepon').val(),
+// 							struktur_pengurus : $('#struktur_pengurus').val(),
+// 							status_jabatan : $('#status_jabatan').val(),
+// 							wilayah_keanggotaan : $('#wilayah_keanggotaan').val(),
+// 			}
+// 	})
+// });
 
 $(document).on("click","#delete",function(e){
   e.preventDefault();

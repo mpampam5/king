@@ -5,6 +5,9 @@ class System_setting extends MY_Controller{
   public function __construct()
   {
     parent::__construct();
+    if (profile_admin("level")!="superadmin") {
+        redirect(site_url("backend/error/not_permission"),"refresh");
+    }
     $this->load->model("System_model","model");
   }
 
