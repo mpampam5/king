@@ -77,9 +77,11 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
           $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
 
           if ($this->form_validation->run()) {
+            $tanggal_sk_terbit = date("Y-m-d",strtotime($this->input->post("tanggal_sk_terbit",true)));
               $data = array(
-                            // 'kd_person' => $this->input->post("no_id",true),
                             'no_sk' => $this->input->post("no_sk",true),
+                            'tanggal_penerbitan_sk' => $tanggal_sk_terbit,
+                            'masa_berlaku_sk' => date('Y-m-d', strtotime('5 years', strtotime($tanggal_sk_terbit))),
                             'id_jabatan' => $this->input->post("status_jabatan",true),
                             'wilayah_keanggotaan' => $this->input->post("wilayah_keanggotaan",true),
                             'is_verifikasi' => "1"

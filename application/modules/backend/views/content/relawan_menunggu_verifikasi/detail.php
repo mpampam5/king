@@ -113,6 +113,7 @@
             </div>
           </section>
 
+
           <div class="mt-3">
             <a href="<?=site_url('backend/'.$this->uri->segment(2))?>" class="btn btn-default btn-sm">kembali</a>
             <a href="<?=site_url("backend/relawan_menunggu_verifikasi/delete/".enc_uri($row->id_person))?>" id="delete" class="btn btn-danger btn-sm"> Hapus Relawan</a>
@@ -124,7 +125,7 @@
               <div class="card-body">
 								<h4 class="card-title text-center"> Form Verifikasi </h4>
 								<hr>
-                <form action="<?=site_url("backend/relawan_menunggu_verifikasi/verifikasi/".enc_uri($row->id_person))?>" id="form-filter">
+                <form autocomplete="off" action="<?=site_url("backend/relawan_menunggu_verifikasi/verifikasi/".enc_uri($row->id_person))?>" id="form-filter">
                   <!-- <div class="form-group">
                     <label for="">No.Id</label>
                     <input type="text" class="form-control" id="no_id" name="no_id" placeholder="Masukkan No.id">
@@ -134,6 +135,11 @@
                     <label for="">No.SK</label>
                     <input type="text" class="form-control" id="no_sk" name="no_sk" placeholder="Masukkan No.SK">
                   </div>
+
+									<div class="form-group">
+									  <label for="">Tanggal Penerbitan SK</label> <span class="text-primary" style="font-size:11px;">* format bln/tgl/thn</span>
+									  <input type="text" class="form-control" data-plugin-datepicker=""  data-plugin-options="{ format:&quot;dd/mm/yyyy&quot;,&quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}"  id="tanggal_sk_terbit" name="tanggal_sk_terbit" placeholder="">
+									</div>
 
                   <div class="form-group">
                     <label for="">Status Jabatan Keanggotaan</label>

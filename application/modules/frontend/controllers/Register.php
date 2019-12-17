@@ -39,13 +39,16 @@ class Register extends CI_Controller{
       $this->form_validation->set_rules("telepon","*&nbsp;","trim|xss_clean|numeric|required");
       $this->form_validation->set_rules("email","*&nbsp;","trim|xss_clean|valid_email|required|callback__cek_email");
       $this->form_validation->set_rules("password","*&nbsp;","trim|xss_clean|min_length[6]|required");
+      $this->form_validation->set_rules("konfirmasi_password","*&nbsp;","trim|xss_clean|required|matches[password]",[
+        "matches" => "Konfirmasi password tidak valid."
+      ]);
       $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
 
 
       if ($this->form_validation->run()) {
         $this->load->helper(array("enc_gue","pass_has"));
         $token = enc_uri(date("dmYhis"));
-        $password = $this->input->post("password",true);
+        $password = $this->input->post("konfirmasi_password",true);
         $generate = pass_encrypt($token,$password);
         $data = array('id_kepengurusan' => $this->input->post("struktur_pengurus",true) ,
                       'nik' => $this->input->post("nik",true),

@@ -250,6 +250,10 @@
               <input type="password" class="form-control" id="password" name="password" placeholder="Password">
             </div>
 
+            <div class="form-group">
+              <input type="password" class="form-control" id="konfirmasi_password" name="konfirmasi_password" placeholder="Konfirmasi Password">
+            </div>
+
             <div class="text-center">
               <img src="<?=base_url()?>_template/logo150x150.png" width="100" height="100" alt="">
               <p style="font-size:12px;margin-top:15px;line-height:12px;">
