@@ -26,6 +26,9 @@ class Register extends CI_Controller{
     if ($this->input->is_ajax_request()) {
       $json = array('success'=>false, 'alert'=>array());
       $this->form_validation->set_rules("struktur_pengurus","*&nbsp;","trim|xss_clean|numeric|required");
+      $this->form_validation->set_rules("status_jabatan","*&nbsp;","trim|xss_clean|numeric|required");
+      $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_sk");
+      $this->form_validation->set_rules("tanggal_penerbitan_sk","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
       $this->form_validation->set_rules("nama","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
       $this->form_validation->set_rules("nik","*&nbsp;","trim|xss_clean|numeric|required|min_length[16]|max_length[16]|callback__cek_nik");
       $this->form_validation->set_rules("tempat_lahir","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
@@ -50,7 +53,12 @@ class Register extends CI_Controller{
         $token = enc_uri(date("dmYhis"));
         $password = $this->input->post("konfirmasi_password",true);
         $generate = pass_encrypt($token,$password);
+        $tanggal_sk_terbit = date("Y-m-d",strtotime($this->input->post("tanggal_penerbitan_sk",true)));
         $data = array('id_kepengurusan' => $this->input->post("struktur_pengurus",true) ,
+                      'id_jabatan' => $this->input->post("status_jabatan",true),
+                      'no_sk' => $this->input->post("no_sk",true),
+                      'tanggal_penerbitan_sk' => $tanggal_sk_terbit,
+                      'masa_berlaku_sk' => date('Y-m-d', strtotime('5 years', strtotime($tanggal_sk_terbit))),
                       'nik' => $this->input->post("nik",true),
                       'nama' => $this->input->post("nama",true),
                       'tempat_lahir' => $this->input->post("tempat_lahir",true),
@@ -84,12 +92,23 @@ class Register extends CI_Controller{
     }
   }
 
+  function _cek_sk($str)
+  {
+    $where =  array("no_sk"=>$str,"is_delete"=>"0");
+        if ($this->db->get_where("tb_person",$where)->row()) {
+          $this->form_validation->set_message('_cek_sk', '*&nbsp;No.SK sudah terdaftar');
+          return false;
+        } else {
+          return true;
+        }
+  }
+
 
   function _cek_nik($str)
   {
     $where =  array("nik"=>$str,"is_delete"=>"0");
         if ($this->db->get_where("tb_person",$where)->row()) {
-          $this->form_validation->set_message('_cek_nik', '*&nbsp;sudah terdaftar');
+          $this->form_validation->set_message('_cek_nik', '*&nbsp;Nik sudah terdaftar');
           return false;
         } else {
           return true;
@@ -101,7 +120,7 @@ class Register extends CI_Controller{
   {
     $where =  array("email"=>$str,"is_delete"=>"0");
         if ($this->db->get_where("tb_person",$where)->row()) {
-          $this->form_validation->set_message('_cek_email', '*&nbsp;sudah terdaftar');
+          $this->form_validation->set_message('_cek_email', '*&nbsp;Email sudah terdaftar');
           return false;
         } else {
           return true;

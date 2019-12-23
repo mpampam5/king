@@ -28,8 +28,13 @@
                   <td>: <span class="text-primary"><?=setting_system("title")?></span></td>
                 </tr>
 
+								<tr>
+                  <th>Telepon Kantor</th>
+                  <td>: <?=setting_system("telepon_kantor")?></td>
+                </tr>
+
                 <tr>
-                  <th>Telepon/ Whatsapp</th>
+                  <th>Telepon Customer Support (Whatsapp)</th>
                   <td>: +62<?=setting_system("telepon")?></td>
                 </tr>
 
@@ -38,9 +43,24 @@
                   <td>: <?=setting_system("email")?></td>
                 </tr>
 
+								<tr>
+                  <th>Link Website</th>
+                  <td>: <a href="<?=setting_system("link_website")?>" target="_blank"><?=setting_system("link_website")?></a></td>
+                </tr>
+
                 <tr>
                   <th>Link Group Facebook</th>
                   <td>: <a href="<?=setting_system("facebook")?>" target="_blank"><?=setting_system("facebook")?></a></td>
+                </tr>
+
+								<tr>
+                  <th>Link Instagram</th>
+                  <td>: <a href="<?=setting_system("instagram")?>" target="_blank"><?=setting_system("instagram")?></a></td>
+                </tr>
+
+								<tr>
+                  <th>Link Twitter</th>
+                  <td>: <a href="<?=setting_system("twitter")?>" target="_blank"><?=setting_system("twitter")?></a></td>
                 </tr>
 
                 <tr>

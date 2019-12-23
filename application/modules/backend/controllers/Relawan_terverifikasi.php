@@ -84,6 +84,7 @@ class Relawan_terverifikasi extends MY_Controller{
       if ($this->input->is_ajax_request()) {
         $json = array('success'=>false, 'alert'=>array());
         $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|required|callback__cek_no_sk[".$this->input->post("no_sk_lama",true)."]");
+        $this->form_validation->set_rules("tanggal_sk_terbit","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
         $this->form_validation->set_rules("struktur_pengurus","*&nbsp;","trim|xss_clean|numeric|required");
         $this->form_validation->set_rules("status_jabatan","*&nbsp;","trim|xss_clean|numeric|required");
         $this->form_validation->set_rules("wilayah_keanggotaan","*&nbsp;","trim|xss_clean|numeric|required");
@@ -103,8 +104,10 @@ class Relawan_terverifikasi extends MY_Controller{
 
 
         if ($this->form_validation->run()) {
-
+          $tanggal_sk_terbit = date("Y-m-d",strtotime($this->input->post("tanggal_sk_terbit",true)));
           $data = array('no_sk'=> $this->input->post("no_sk",true),
+                        'tanggal_penerbitan_sk' => $tanggal_sk_terbit,
+                        'masa_berlaku_sk' => date('Y-m-d', strtotime('5 years', strtotime($tanggal_sk_terbit))),
                         'id_jabatan' => $this->input->post("status_jabatan",true),
                         'wilayah_keanggotaan' => $this->input->post("wilayah_keanggotaan",true),
                         'id_kepengurusan' => $this->input->post("struktur_pengurus",true),

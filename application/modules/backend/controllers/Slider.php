@@ -143,16 +143,6 @@ class Slider extends MY_Controller{
 
 
 
-
-
-
-
-
-
-
-
-
-
 function do_upload()
 {
     if ($this->input->is_ajax_request()) {
@@ -160,7 +150,7 @@ function do_upload()
         $image = "slider_".date('dmyhis').".".pathinfo($_FILES['foto_personal']['name'], PATHINFO_EXTENSION);
 
         $config['upload_path'] = "./_template/files/";
-        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['allowed_types'] = 'jpg|jpeg';
         $config['overwrite'] = true;
         $config['max_size']  = '1024';
         $config['file_name']  = "$image";
@@ -170,7 +160,7 @@ function do_upload()
 
         if (!$this->upload->do_upload('foto_personal')){
             $json['header_alert'] = "error";
-            $json['alert'] = "File tidak valid, format file harus jpg|jpeg|png & ukuran maksimal 1mb";
+            $json['alert'] = "File tidak valid, format file harus jpg|jpeg & ukuran maksimal 1mb";
         }else {
             // $where = array('id_person' => sess("id_person"));
             // $this->model->get_update("tb_person",["file_foto"=>$image],$where);

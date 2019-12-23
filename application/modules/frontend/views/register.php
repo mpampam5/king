@@ -182,6 +182,23 @@
               </select>
             </div>
 
+            <div class="form-group">
+              <select class="form-control" style="color:#424242" name="status_jabatan" id="status_jabatan">
+                <option value="">-- pilih Status Jabatan--</option>
+                <?php $status_jabatan = $this->db->get("status_jabatan"); ?>
+                <?php foreach ($status_jabatan->result() as $jabatan): ?>
+                  <option value="<?=$jabatan->id?>"><?=$jabatan->jabatan?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" id="no_sk" name="no_sk" placeholder="No. SK">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control tanggal" readonly id="tanggal_penerbitan_sk" name="tanggal_penerbitan_sk" placeholder="Tanggal Penerbitan SK">
+            </div>
 
             <div class="form-group">
               <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap">

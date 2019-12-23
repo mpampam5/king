@@ -29,8 +29,12 @@ class System_setting extends MY_Controller{
         $json = array('success'=>false, 'alert'=>array());
         $this->form_validation->set_rules("title","*&nbsp;","trim|xss_clean|htmlspecialchars|required");
         $this->form_validation->set_rules("telepon","*&nbsp;","trim|xss_clean|numeric|required");
+        $this->form_validation->set_rules("telepon_kantor","*&nbsp;","trim|xss_clean|numeric|required");
         $this->form_validation->set_rules("email","*&nbsp;","trim|xss_clean|required|valid_email");
-        $this->form_validation->set_rules("facebook","*&nbsp;","trim|xss_clean|htmlspecialchars|required|valid_url");
+        $this->form_validation->set_rules("facebook","*&nbsp;","trim|xss_clean|htmlspecialchars|valid_url");
+        $this->form_validation->set_rules("instagram","*&nbsp;","trim|xss_clean|htmlspecialchars|valid_url");
+        $this->form_validation->set_rules("twitter","*&nbsp;","trim|xss_clean|htmlspecialchars|valid_url");
+        $this->form_validation->set_rules("website","*&nbsp;","trim|xss_clean|htmlspecialchars|valid_url");
         $this->form_validation->set_rules("alamat","*&nbsp;","trim|xss_clean|required|htmlspecialchars");
         $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
 
@@ -38,7 +42,11 @@ class System_setting extends MY_Controller{
           $data = [
                     "title"        => $this->input->post("title",true),
                     "telepon"     => $this->input->post("telepon",true),
+                    "telepon_kantor"     => $this->input->post("telepon_kantor",true),
                     "facebook"       => $this->input->post("facebook",true),
+                    "instagram"       => $this->input->post("instagram",true),
+                    "twitter"       => $this->input->post("twitter",true),
+                    "link_website"       => $this->input->post("website",true),
                     "email"       => $this->input->post("email",true),
                     "alamat"   => $this->input->post('alamat',true),
                   ];

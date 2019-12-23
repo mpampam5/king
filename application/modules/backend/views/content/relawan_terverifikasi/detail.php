@@ -46,6 +46,17 @@
 									<th>Nomor SK</th>
 									<td>: <span style="font-weight:bold;" class="text-primary"><?=$row->no_sk?></span></td>
 								</tr>
+
+								<tr>
+									<th>Tanggal Penerbitan SK</th>
+									<td>: <span style="font-weight:bold;" class="text-primary"><?=date("d-m-Y",strtotime($row->tanggal_penerbitan_sk))?></span></td>
+								</tr>
+
+								<tr>
+									<th>Masa Berlaku SK</th>
+									<td>: <span style="font-weight:bold;" class="text-primary"><?=date("d-m-Y",strtotime($row->masa_berlaku_sk))?></span></td>
+								</tr>
+
                 <tr>
                   <th>Stuktur Kepengurusan</th>
                   <td>: <span style="font-weight:bold;" class="text-danger"><?=strtoupper(struktur_pengurus($row->id_kepengurusan))?></span></td>
@@ -63,7 +74,7 @@
 
                 <tr>
                   <th>NIK</th>
-                  <td>: <span style="font-weight:bold;" class="text-primary"><?=$row->nik?></span></td>
+                  <td>: <span style="font-weight:bold;" class="text-success"><?=$row->nik?></span></td>
                 </tr>
 
                 <tr>

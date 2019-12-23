@@ -26,6 +26,11 @@
         </div>
 
         <div class="form-group">
+          <label for="">Masa Berlaku</label>
+          <span class="badge badge-danger badge-pill w-100"> <?=date("d-m-Y",strtotime(profile("masa_berlaku_sk")))?></span>
+        </div>
+
+        <div class="form-group">
           <label for="">Status Jabatan Keanggotaan</label>
           <span class="badge badge-danger badge-pill w-100"> <?=strtoupper(profile("jabatan"))?></span>
         </div>

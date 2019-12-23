@@ -181,6 +181,18 @@
 				                        </a>
 				                    </li>
 
+
+														<?php if (profile_admin("level")=="superadmin"): ?>
+														<li>
+				                        <a class="nav-link" href="<?=site_url("backend/system_setting")?>">
+				                            <i class="fas fa-cogs" aria-hidden="true"></i>
+				                            <span>Pengaturan System</span>
+				                        </a>
+				                    </li>
+													<?php endif; ?>
+
+
+
 														<li class="nav-parent">
 				                        <a class="nav-link" href="#">
 				                            <i class="fas fa-users" aria-hidden="true"></i>
@@ -202,33 +214,42 @@
 				                        </ul>
 				                    </li>
 
-														<li>
-				                        <a class="nav-link" href="<?=site_url("backend/bantuan")?>">
-				                            <i class="fas fa-handshake" aria-hidden="true"></i>
-				                            <span>Bantuan Khusus</span>
-				                        </a>
-				                    </li>
-
-				                    <li>
-				                        <a class="nav-link" href="<?=site_url("backend/jadwal_acara")?>">
-				                            <i class="fas fa-calendar" aria-hidden="true"></i>
-				                            <span>Jadwal Acara</span>
-				                        </a>
-				                    </li>
-
-														<li>
-				                        <a class="nav-link" href="<?=site_url("backend/kegiatan")?>">
-				                            <i class="fas fa-receipt" aria-hidden="true"></i>
-				                            <span>Kegiatan</span>
-				                        </a>
-				                    </li>
-
+														<?php if (profile_admin("level")=="superadmin"): ?>
 														<li>
 				                        <a class="nav-link" href="<?=site_url("backend/aturan")?>">
 				                            <i class="fas fa-balance-scale" aria-hidden="true"></i>
 				                            <span>Aturan & Persyaratan</span>
 				                        </a>
 				                    </li>
+														<?php endif; ?>
+
+														<?php if (profile_admin("level")=="superadmin"): ?>
+														<li>
+															 <a class="nav-link" href="<?=site_url("backend/jadwal_acara")?>">
+																	 <i class="fas fa-calendar" aria-hidden="true"></i>
+																	 <span>Jadwal Acara</span>
+															 </a>
+													 </li>
+													 <?php endif; ?>
+
+													 <?php if (profile_admin("level")=="superadmin"): ?>
+													 <li>
+															 <a class="nav-link" href="<?=site_url("backend/kegiatan")?>">
+																	 <i class="fas fa-receipt" aria-hidden="true"></i>
+																	 <span>Kegiatan</span>
+															 </a>
+													 </li>
+													 <?php endif; ?>
+
+													 <?php if (profile_admin("level")=="superadmin"): ?>
+														<li>
+				                        <a class="nav-link" href="<?=site_url("backend/bantuan")?>">
+				                            <i class="fas fa-handshake" aria-hidden="true"></i>
+				                            <span>Bantuan Khusus</span>
+				                        </a>
+				                    </li>
+														<?php endif; ?>
+
 
 														<!-- <li>
 				                        <a class="nav-link" href="<?=site_url("backend/slider")?>">
@@ -236,20 +257,11 @@
 				                            <span>Slider Dashboard</span>
 				                        </a>
 				                    </li> -->
-
+														<?php if (profile_admin("level")=="superadmin"): ?>
 														<li>
 				                        <a class="nav-link" href="<?=site_url("backend/tentang")?>">
 				                            <i class="fas fa-archive" aria-hidden="true"></i>
 				                            <span>Tentang JPKP</span>
-				                        </a>
-				                    </li>
-
-
-														<?php if (profile_admin("level")=="superadmin"): ?>
-														<li>
-				                        <a class="nav-link" href="<?=site_url("backend/administrator")?>">
-				                            <i class="fas fa-user-cog" aria-hidden="true"></i>
-				                            <span>Administrator</span>
 				                        </a>
 				                    </li>
 														<?php endif; ?>
@@ -257,12 +269,12 @@
 
 														<?php if (profile_admin("level")=="superadmin"): ?>
 														<li>
-				                        <a class="nav-link" href="<?=site_url("backend/system_setting")?>">
-				                            <i class="fas fa-cogs" aria-hidden="true"></i>
-				                            <span>Pengaturan System</span>
-				                        </a>
-				                    </li>
-													<?php endif; ?>
+																<a class="nav-link" href="<?=site_url("backend/administrator")?>">
+																		<i class="fas fa-user-cog" aria-hidden="true"></i>
+																		<span>Administrator</span>
+																</a>
+														</li>
+														<?php endif; ?>
 
 														<!-- <li>
 				                        <a class="nav-link" href="<?=site_url("")?>">

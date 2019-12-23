@@ -68,7 +68,7 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
         if ($this->input->is_ajax_request()) {
           $json = array('success'=>false, 'alert'=>array());
           // $this->form_validation->set_rules("no_id","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_no_id");
-          $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_sk");
+          $this->form_validation->set_rules("no_sk","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_sk[".$this->input->post("no_sk_lama")."]");
           $this->form_validation->set_rules("status_jabatan","*&nbsp;","trim|xss_clean|numeric|required");
           $this->form_validation->set_rules("wilayah_keanggotaan","*&nbsp;","trim|xss_clean|numeric|required");
           $this->form_validation->set_rules("password","*&nbsp;","trim|xss_clean|htmlspecialchars|required|callback__cek_password",[
@@ -117,11 +117,11 @@ class Relawan_menunggu_verifikasi extends MY_Controller{
           }
     }
 
-    function _cek_sk($str)
+    function _cek_sk($str,$sk_lama)
     {
-      $where =  array("no_sk"=>$str,"is_delete"=>"0","is_verifikasi"=>"1");
+      $where =  array("no_sk"=>$str,"no_sk !="=>$sk_lama,"is_delete"=>"0","is_verifikasi"=>"1");
           if ($this->db->get_where("tb_person",$where)->row()) {
-            $this->form_validation->set_message('_cek_sk', '*&nbsp;sudah ada');
+            $this->form_validation->set_message('_cek_sk', '*&nbsp;sudah terdaftar di relawan terverifikasi');
             return false;
           } else {
             return true;

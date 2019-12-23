@@ -7,6 +7,10 @@
     left:0!important;
   }
 } */
+.btn-instagram{
+  background-color: #ff384a;
+}
+
 @media (max-width: 767px){
   .content-wrapper{
     padding: 0!important;
@@ -528,4 +532,14 @@ box-shadow: 2px -2px 5px -3px rgba(0,0,0,0.75);
   color: #e20e0e;
   font-weight: bold;
   text-align: center!important;
+}
+
+.img-kegiatan{
+  min-height: 150px;
+  width: 100%;
+  margin-bottom: 4px;
+  background-color: red;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }

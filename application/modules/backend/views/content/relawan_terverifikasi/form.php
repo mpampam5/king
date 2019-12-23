@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+<script src="<?=base_url()?>_template/frontend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <section role="main" class="content-body">
 		<header class="page-header">
 			<h2>Form Edit Data Relawan Terverifikasi</h2>
@@ -31,6 +33,12 @@
                   </div>
 
 									<input type="hidden" class="form-control" id="no_sk_lama" name="no_sk_lama" value="<?=$row->no_sk?>">
+
+
+									<div class="form-group">
+									  <label for="">Tanggal Penerbitan SK</label> <span class="text-primary" style="font-size:11px;">* format tgl/bln/thn</span>
+									  <input type="text" class="form-control tanggal"  id="tanggal_sk_terbit" name="tanggal_sk_terbit" placeholder="Tanggal Penerbitan SK" value="<?=date("d-m-Y",strtotime($row->tanggal_penerbitan_sk))?>">
+									</div>
 
                   <div class="form-group">
                     <label for="">Struktur Kepengurusan</label>
@@ -168,6 +176,12 @@
 
 
 <script type="text/javascript">
+$(document).ready(function(){
+$('.tanggal').datepicker({
+	format: 'dd-mm-yyyy',
+	autoclose: true
+});
+});
 
 	function loadKabupaten()
 					{

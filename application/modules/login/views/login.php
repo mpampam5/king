@@ -87,7 +87,7 @@
 					</div>
 				</div>
 
-				<p class="text-center text-muted mt-3 mb-3">&copy; Copyright <?=date("Y")?>. All Rights Reserved.</p>
+				<p class="text-center text-muted mt-3 mb-3">&copy; Copyright <?=date("Y")?> <a href="https://ideadigitalindonesia.com" target="_blank">IDEA DIGITAL INDONESIA</a></p>
 			</div>
 		</section>
 		<!-- end: page -->

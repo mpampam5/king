@@ -30,8 +30,13 @@
                   <input type="text" class="form-control" id="title" name="title" placeholder="Masukkan Title System" value="<?=setting_system("title")?>">
                 </div>
 
+								<div class="form-group">
+                  <label for="">Telepon Kantor</label>
+                  <input type="text" class="form-control" id="telepon_kantor" name="telepon_kantor" placeholder="Masukkan Telepon Kantor" value="<?=setting_system("telepon_kantor")?>">
+                </div>
+
                 <div class="form-group">
-                  <label for="">Telepon (Whatsapp)</label><span class="text-primary" style="font-size:11px"> * example 852xxxx</span>
+                  <label for="">Telepon Customer Support (Whatsapp)</label><span class="text-primary" style="font-size:11px"> * example 852xxxx</span>
                   <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan Telepon" value="<?=setting_system("telepon")?>">
                 </div>
 
@@ -43,6 +48,21 @@
                 <div class="form-group">
                   <label for="">Link Facebook Group</label><span class="text-primary" style="font-size:11px"> * example https://facebook.com/groups/xxxxxxxx</span>
                   <input type="text" class="form-control" id="facebook" name="facebook" placeholder="Masukkan Link Facebook Group" value="<?=setting_system("facebook")?>">
+                </div>
+
+								<div class="form-group">
+                  <label for="">Link Instagram</label>
+                  <input type="text" class="form-control" id="instagram" name="instagram" placeholder="Masukkan Link Instagram" value="<?=setting_system("instagram")?>">
+                </div>
+
+								<div class="form-group">
+                  <label for="">Link Twitter</label>
+                  <input type="text" class="form-control" id="twitter" name="twitter" placeholder="Masukkan Link Twitter" value="<?=setting_system("twitter")?>">
+                </div>
+
+								<div class="form-group">
+                  <label for="">Link Website</label>
+                  <input type="text" class="form-control" id="website" name="website" placeholder="Masukkan Link Website" value="<?=setting_system("link_website")?>">
                 </div>
 
                 <div class="form-group">

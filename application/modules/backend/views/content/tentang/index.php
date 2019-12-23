@@ -44,8 +44,12 @@
                           <td><?=$no++?></td>
                           <td><?=$row->title?></td>
                           <td class="text-center">
-                            <a href="<?=site_url("backend/tentang/detail/$row->slug")?>" class="btn btn-xs btn-primary"><i class="fas fa-file"></i> Detail</a>
-                            <a href="<?=site_url("backend/tentang/edit/$row->slug")?>" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+														<?php if ($row->slug=="legalitas"): ?>
+															<a href="<?=site_url("backend/tentang/upload")?>" class="btn btn-xs btn-warning"><i class="fas fa-upload"></i> Upload Berkas</a>&nbsp;
+															<?php else: ?>
+																<a href="<?=site_url("backend/tentang/detail/$row->slug")?>" class="btn btn-xs btn-primary"><i class="fas fa-file"></i> Detail</a>
+																<a href="<?=site_url("backend/tentang/edit/$row->slug")?>" class="btn btn-xs btn-warning"><i class="fas fa-pen-square"></i> Edit</a>&nbsp;
+														<?php endif; ?>
                           </td>
                         </tr>
                       <?php endforeach; ?>

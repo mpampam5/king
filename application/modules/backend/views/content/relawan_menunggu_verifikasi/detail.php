@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
+<script src="<?=base_url()?>_template/frontend/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <section role="main" class="content-body">
 		<header class="page-header">
 			<h2>Detail Relawan Menunggu Verifikasi</h2>
@@ -133,12 +135,14 @@
 
                   <div class="form-group">
                     <label for="">No.SK</label>
-                    <input type="text" class="form-control" id="no_sk" name="no_sk" placeholder="Masukkan No.SK">
+                    <input type="text" class="form-control" id="no_sk" name="no_sk" placeholder="Masukkan No.SK" value="<?=$row->no_sk?>">
                   </div>
 
+									<input type="hidden" id="no_sk_lama" name="no_sk_lama" value="<?=$row->no_sk?>">
+
 									<div class="form-group">
-									  <label for="">Tanggal Penerbitan SK</label> <span class="text-primary" style="font-size:11px;">* format bln/tgl/thn</span>
-									  <input type="text" class="form-control" data-plugin-datepicker=""  data-plugin-options="{ format:&quot;dd/mm/yyyy&quot;,&quot;autoclose&quot;:true,&quot;orientation&quot;:&quot;left bottom&quot;}"  id="tanggal_sk_terbit" name="tanggal_sk_terbit" placeholder="">
+									  <label for="">Tanggal Penerbitan SK</label> <span class="text-primary" style="font-size:11px;">* format tgl/bln/thn</span>
+									  <input type="text" class="form-control tanggal"  id="tanggal_sk_terbit" name="tanggal_sk_terbit" placeholder="Tanggal Penerbitan SK" value="<?=date("d-m-Y",strtotime($row->tanggal_penerbitan_sk))?>">
 									</div>
 
                   <div class="form-group">
@@ -147,7 +151,7 @@
                       <option value="">-- pilih --</option>
                       <?php $status_jabatan = $this->db->get("status_jabatan"); ?>
                       <?php foreach ($status_jabatan->result() as $jabatan): ?>
-                        <option value="<?=$jabatan->id?>"><?=$jabatan->jabatan?></option>
+                        <option <?=$row->id_jabatan==$jabatan->id?"selected":""?> value="<?=$jabatan->id?>"><?=$jabatan->jabatan?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
@@ -183,6 +187,12 @@
 
 
 <script type="text/javascript">
+$(document).ready(function(){
+$('.tanggal').datepicker({
+	format: 'dd-mm-yyyy',
+	autoclose: true
+});
+});
 
 $("#verif-content").click(function(){
   $("#verif-content-collapse").collapse('toggle');

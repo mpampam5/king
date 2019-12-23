@@ -35,6 +35,7 @@ function profile($field)
                           tb_person.id_kepengurusan,
                           tb_person.kd_person,
                           tb_person.no_sk,
+                          tb_person.masa_berlaku_sk,
                           tb_person.nik,
                           tb_person.nama,
                           tb_person.tempat_lahir,

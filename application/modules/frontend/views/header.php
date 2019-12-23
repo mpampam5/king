@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/vendors/font-awesomes/css/all.min.css" />
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/style.css">
   <link rel="stylesheet" href="<?=base_url()?>_template/frontend/css/vertical-layout-light/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
   <!-- endinject -->
   <link rel="shortcut icon" href="<?=base_url()?>_template/frontend/images/favicon.png" />
 
@@ -23,6 +24,7 @@
   <script src="<?=base_url()?>_template/frontend/vendors/js/vendor.bundle.base.js"></script>
 
   <script src="<?=base_url()?>_template/frontend/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 </head>
 
 <body>
@@ -138,7 +140,7 @@
           <li class="nav-item">
             <a class="nav-link" href="<?=site_url("frontend/page/index/tentang")?>">
               <i class="ti-book menu-icon"></i>
-              <span class="menu-title">Tentang JPKP</span>
+              <span class="menu-title">Sejarah JPKP</span>
             </a>
           </li>
 
@@ -165,6 +167,13 @@
             <a class="nav-link" href="<?=site_url("frontend/ppob")?>">
               <i class="ti-wallet menu-icon"></i>
               <span class="menu-title">Layanan PPOB</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<?=site_url("frontend/ganti_password")?>">
+              <i class="ti-lock menu-icon"></i>
+              <span class="menu-title">Ganti Password</span>
             </a>
           </li>
 
