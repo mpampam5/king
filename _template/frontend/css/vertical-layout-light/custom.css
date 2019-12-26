@@ -377,7 +377,7 @@ iframe {
 
 .page .content{
   color: #585858;
-  text-align: justify;
+  /* text-align: left; */
   font-size: 14px;
   line-height: 14px;
 }

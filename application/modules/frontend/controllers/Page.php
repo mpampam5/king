@@ -17,4 +17,11 @@ class Page extends MY_Controller{
     $this->template->view("content/page/index",$data);
   }
 
+  function download_legalitas()
+  {
+    $this->load->helper('download');
+    $path = "./_template/docs/LEGALITAS-JPKP.pdf";
+    force_download($path, NULL);
+  }
+
 }

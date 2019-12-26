@@ -79,7 +79,8 @@ function rows_table($table)
 {
   $date = date("Y-m-d");
   $ci=get_instance();
-  return $ci->db->like("created",$date)
+  return $ci->db->where("is_delete","0")
+                ->like("created",$date)
                 ->get("$table")
                 ->num_rows();
 }

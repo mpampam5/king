@@ -58,7 +58,7 @@
 </div>
 
 
-<div class="text-tentang text-center p-4">
+<div class="text-tentang p-4" style="text-align:justify">
   <p>
     <?=setting_system("dashboard_tentang_footer")?>
   </p>

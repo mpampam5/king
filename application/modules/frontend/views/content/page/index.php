@@ -4,7 +4,7 @@
     <div class="mt-3 content">
       <?php if ($row->slug=="legalitas"): ?>
         <?php
-          $path = "./_template/docs/AD-ART-JPKP.pdf";
+          $path = "./_template/docs/LEGALITAS-JPKP.pdf";
 
           if (!file_exists($path)) {
             $docs = "";
@@ -16,7 +16,7 @@
 
          <?php if ($docs!=""): ?>
         <div class="mt-5 text-center">
-          <a href="<?=site_url("frontend/aturan/download")?>" target="_blank" class="btn btn-md btn-danger"><i class="ti-file"></i> Download Berkas</a>
+          <a href="<?=site_url("frontend/page/download_legalitas")?>" target="_blank" class="btn btn-md btn-danger"><i class="ti-file"></i> Download Berkas</a>
         </div>
         <?php endif; ?>
         <?php else: ?>

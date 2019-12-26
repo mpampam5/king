@@ -55,7 +55,9 @@
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="ti-bell mx-0"></i>
-              <span class="count"></span>
+              <?php if (rows_table("jadwal_acara") > 0 ||rows_table("kegiatan") > 0 || rows_table("bantuan_khusus") > 0): ?>
+                <span class="count"></span>
+              <?php endif; ?>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
