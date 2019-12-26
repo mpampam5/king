@@ -119,6 +119,7 @@
           <div class="mt-3">
             <a href="<?=site_url('backend/'.$this->uri->segment(2))?>" class="btn btn-default btn-sm">kembali</a>
             <a href="<?=site_url("backend/relawan_menunggu_verifikasi/delete/".enc_uri($row->id_person))?>" id="delete" class="btn btn-danger btn-sm"> Hapus Relawan</a>
+						<a href="<?=site_url("backend/relawan_terverifikasi/reset_password/".enc_uri($row->id_person))?>" id="reset_password" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-lock"></i> Reset Password</a>
             <button type="button" class="btn btn-success btn-sm" id="verif-content" name="button">Verifikasi Relawan</button>
           </div>
 
@@ -193,6 +194,17 @@ $('.tanggal').datepicker({
 	autoclose: true
 });
 });
+
+$(document).on("click","#reset_password",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-lg')
+                    .removeClass('modal-md')
+                    .addClass('modal-sm');
+  $("#modalTitle").text('Reset Password Relawan');
+  $('#modalContent').load($(this).attr("href"));
+  $("#modalGue").modal('show');
+});
+
 
 $("#verif-content").click(function(){
   $("#verif-content-collapse").collapse('toggle');

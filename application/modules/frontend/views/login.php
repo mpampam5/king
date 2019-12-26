@@ -211,7 +211,7 @@
 
 
                 <p class="text-center mt-3">
-                  <span><a href="" class="text-white">Lupa password?</a></span>
+                  <span><a href="<?=site_url("frontend/lupa_password")?>" class="text-white">Lupa password?</a></span>
                 </p>
 
                 <div class="text-center mt-3">

@@ -139,6 +139,7 @@
 
           <div class="mt-3">
             <a href="<?=site_url('backend/'.$this->uri->segment(2))?>" class="btn btn-default btn-sm">kembali</a>
+						<a href="<?=site_url("backend/relawan_terverifikasi/reset_password/".enc_uri($row->id_person))?>" id="reset_password" class="btn btn-success btn-sm" target="_blank"><i class="fas fa-lock"></i> Reset Password</a>
 						<a href="<?=site_url("backend/relawan_terverifikasi/get_id_card/".enc_uri($row->id_person))?>" class="btn btn-primary btn-sm" target="_blank"><i class="fas fa-id-card"></i> Id Card</a>
 						<a href="<?=site_url("backend/relawan_terverifikasi/edit/".enc_uri($row->id_person))?>" id="edit" class="btn btn-warning btn-sm"><i class="fas fa-trash"></i> Edit Data Relawan</a>
             <a href="<?=site_url("backend/relawan_terverifikasi/delete/".enc_uri($row->id_person))?>" id="delete" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus Relawan</a>
@@ -154,6 +155,16 @@
 
 
 <script type="text/javascript">
+
+$(document).on("click","#reset_password",function(e){
+  e.preventDefault();
+  $('.modal-dialog').removeClass('modal-lg')
+                    .removeClass('modal-md')
+                    .addClass('modal-sm');
+  $("#modalTitle").text('Reset Password Relawan');
+  $('#modalContent').load($(this).attr("href"));
+  $("#modalGue").modal('show');
+});
 
 $(document).on("click","#delete",function(e){
   e.preventDefault();
