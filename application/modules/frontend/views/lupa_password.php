@@ -251,10 +251,12 @@
                       $("#submit").prop('disabled',false)
                                   .html('Kirim Kode Reset Password');
                       $("#email").val("");
+                      $(".text-danger").remove();
 
                     }else {
                       $("#submit").prop('disabled',false)
                                   .html('Kirim Kode Reset Password');
+                      $(".alert").html("");
                       $.each(json.alert, function(key, value) {
                         var element = $('#' + key);
                         $(element)

@@ -54,7 +54,7 @@
      <?php if ($docs!=""): ?>
     <div class="mt-4">
       <label style="font-size:10px;"><b>Klik untuk mendownload AD/ART JPK<span class="text-danger">P</span><b></label><br>
-      <a href="<?=site_url("frontend/aturan/download_ad_art")?>" target="_blank" class="btn btn-md btn-danger">Download AD/ART</a>
+      <a href="<?=site_url("file/ad_art")?>" target="_blank" class="btn btn-md btn-danger">Download AD/ART</a>
     </div>
     <?php endif; ?>
   </div>

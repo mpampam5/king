@@ -282,7 +282,15 @@
 				                            <span>Log Activity Admin</span>
 				                        </a>
 				                    </li> -->
+
+
 				                </ul>
+
+												<span class="footer">
+													<a href="https://ideadigitalindonesia.com">&copy; Copyright <?=date("Y")?> IDEA DIGITAL INDONESIA</a>
+												</span>
+
+
 				            </nav>
 				        </div>
 				    </div>
