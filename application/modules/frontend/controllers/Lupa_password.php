@@ -49,4 +49,11 @@ class Lupa_password extends CI_Controller{
         }
   }
 
+
+  function email()
+  {
+    $this->load->helper("frontend");
+     $this->load->view("template_email");
+  }
+
 }

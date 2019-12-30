@@ -186,6 +186,9 @@
               <button type="submit" class="btn btn-danger btn-lg btn-red" id="submit" name="button">Kirim Kode Reset Password</button>
             </div>
 
+
+            <div class="alert"></div>
+
           </form>
         </div>
       </div>
@@ -244,7 +247,11 @@
                   processData     :false,
                   success:function(json){
                     if (json.success==true) {
-                          // location.href="<?=site_url('frontend/login')?>";
+                      $(".alert").hide().fadeIn(500).html('<label class="text-primary text-center mt-3">Permintaan anda berhasil di proses, silahkan cek email anda.</label>');
+                      $("#submit").prop('disabled',false)
+                                  .html('Kirim Kode Reset Password');
+                      $("#email").val("");
+
                     }else {
                       $("#submit").prop('disabled',false)
                                   .html('Kirim Kode Reset Password');
