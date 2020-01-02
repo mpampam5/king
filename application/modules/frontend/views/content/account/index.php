@@ -52,6 +52,7 @@
 </div>
 
 
+
 <script type="text/javascript">
 $(function () {
     var fileupload = $("#upload-foto");

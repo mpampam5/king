@@ -52,6 +52,8 @@ class Login extends CI_Controller {
               $token =  $row->token;
 
               if (pass_decrypt($token,$password,$pwd)===true) {
+
+
                 $session = array('logins' => true,
                                  'id_admin' => $row->id_admin
                                 );

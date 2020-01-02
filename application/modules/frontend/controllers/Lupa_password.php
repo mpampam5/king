@@ -6,7 +6,7 @@ class Lupa_password extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
-    // $this->load->model("Ganti_password_model","model");
+    $this->load->model("Ganti_password_model","model");
     $this->load->library(array("form_validation"));
   }
 
@@ -23,7 +23,7 @@ class Lupa_password extends CI_Controller{
       $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px">','</span>');
       if ($this->form_validation->run()) {
         $this->load->helper(array("enc_gue","pass_has"));
-        $token = enc_uri(date('dmYhis')."-".$this->input->post("email"));
+        $token = enc_uri(date('dmYhis'));
 
         $qry = $this->db->get_where("tb_person",["email"=>$this->input->post("email")])->row();
 
@@ -34,7 +34,7 @@ class Lupa_password extends CI_Controller{
         $data['row'] = $qry;
         $data['token'] = $token;
 
-        $subject  = "JPKP PUSAT - RESET PASSWORD";
+        $subject  = "JPKP PUSAT";
         $this->load->helper("frontend");
         $template = $this->load->view('template_email',$data,TRUE);
 
@@ -89,13 +89,69 @@ class Lupa_password extends CI_Controller{
   }
 
 
-  function email()
+  // function email()
+  // {
+  //   $this->load->helper("frontend");
+  //   $qry = $this->db->get_where("tb_person",["email"=>"mpampam5@gmail.com"])->row();
+  //   $data['token'] = 'dsadsadsda';
+  //   $data['row'] = $qry;
+  //   $this->load->view("template_email",$data);
+  // }
+
+
+  function reset_password($token="")
   {
-    $this->load->helper("frontend");
-    $qry = $this->db->get_where("tb_person",["email"=>"mpampam5@gmail.com"])->row();
-    $data['token'] = 'dsadsadsda';
-    $data['row'] = $qry;
-    $this->load->view("template_email",$data);
+    if ($token!="") {
+      $qry =  $this->db->get_where("tb_person",["kode_token"=>$token]);
+      if ($qry->num_rows() > 0) {
+        $data["token"] = true;
+      }else{
+        $data["token"] = false;
+      }
+      $data['action'] =  site_url("reset-pwd/action/$token");
+      $this->load->view("reset_pwd",$data);
+    }else {
+      redirect(site_url(),"refresh");
+    }
+  }
+
+
+  function reset_password_action($kode_token="")
+  {
+    if ($kode_token!="") {
+      if ($this->input->is_ajax_request()) {
+          $json = array('success'=>false, 'alert'=>array());
+          $this->form_validation->set_rules("password","*&nbsp;","trim|xss_clean|required|min_length[6]");
+          $this->form_validation->set_rules("konfirmasi_password","*&nbsp;","trim|xss_clean|required|matches[password]",[
+            "matches" => "* Konfirmasi Password Baru tidak valid"
+          ]);
+          $this->form_validation->set_error_delimiters('<span class="error mt-1 text-danger" style="font-size:11px;color:#fff!important">','</span>');
+          if ($this->form_validation->run()) {
+
+            $this->load->helper(array("enc_gue","pass_has"));
+            $token = enc_uri(date('dmYhis'));
+
+            $data = [
+                      "token"       => $token,
+                      "kode_token"  =>$token,
+                      "password"    => pass_encrypt($token,$this->input->post("konfirmasi_password")),
+                      "modified"     => date('Y-m-d H:i:s')
+                    ];
+
+            $this->model->get_update("tb_person",$data,["kode_token"=>$kode_token]);
+
+            $json['alert'] = "Reset password Berhasil";
+            $json['success'] =  true;
+          }else {
+            foreach ($_POST as $key => $value)
+              {
+                $json['alert'][$key] = form_error($key);
+              }
+          }
+
+          echo json_encode($json);
+      }
+    }
   }
 
 }

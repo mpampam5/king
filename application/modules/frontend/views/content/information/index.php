@@ -1,5 +1,17 @@
+<style media="screen">
+.peta{
+  min-width: 300px;
+  min-height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("<?=base_url()?>_template/peta_indonesia.png");
+}
+
+</style>
+
 <div class="content-wrapper" style="margin-bottom:35px;">
-  <div class="mt-3 text-center main-menus">
+  <div class="mt-3 mb-5 text-center main-menus">
     <div class="rounded-menu">
       <a href="<?=site_url("frontend/aturan")?>">
         <span class="badge badge-outline-danger">SK</span>
@@ -28,5 +40,8 @@
       </a>
     </div>
   </div>
+
+
+  <div class="peta"></div>
 
 </div>

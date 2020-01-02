@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'login';
+$route['default_controller'] = 'landing_page/home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -57,3 +57,9 @@ $route['translate_uri_dashes'] = FALSE;
 $route['panel-admin'] = 'login';
 
 $route['signout'] = 'login/login/logout';
+
+$route['reset-pwd'] = 'frontend/lupa_password/reset_password';
+
+$route['reset-pwd/(:any)'] = 'frontend/lupa_password/reset_password/$1';
+
+$route['reset-pwd/action/(:any)'] = 'frontend/lupa_password/reset_password_action/$1';

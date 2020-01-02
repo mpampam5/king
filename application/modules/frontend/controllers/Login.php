@@ -55,6 +55,13 @@ class Login extends CI_Controller{
             $token =  $row->token;
 
             if (pass_decrypt($token,$password,$pwd)===true) {
+
+              $token = enc_uri(date('dmYhis'));
+
+              $this->db->where("email",$row->email)
+                       ->update("tb_person",["kode_token"=>$token]);
+
+
               $session = array('logins_person' => true,
                                'id_person' => $row->id_person
                               );
